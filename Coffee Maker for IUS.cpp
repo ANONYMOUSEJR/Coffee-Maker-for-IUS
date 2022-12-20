@@ -1,8 +1,8 @@
 // TryCoffe1.cpp : First version of the file, started on 10.12.2022. (December 12th 2022)
-// Team members: - Ammar Omerika     220302227 SE.
-//               - Selma Alic        220302129 CSE.
-//               - Omer Becic        220302287 SE.
-//               - Altan Berk Eren   210302301 SE.
+// Team members: - Ammar Omerika     220302227 SE
+//               - Selma Alic        220302129 CSE
+//               - Omer Becic        220302287 SE
+//               - Altan Berk Eren   210302301 SE
 
 #include <iostream>
 #include <cstdlib>
