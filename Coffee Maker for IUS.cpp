@@ -17,6 +17,7 @@ int main()
     int coffeePrices[5] = { 2,2,3.5,3,1.5 };
     int coffeeChoice;
     do {
+        start:
         //WHICH MODE:
         std::cout << "Do you wish the use the setting mode or operation mode <s/o>" << std::endl;
         std::cin >> setModeOrUserMode;
@@ -24,8 +25,8 @@ int main()
             //SETTING MODE
             std::cout << "SETTING MODE:" << std::endl;
             do {
-                //Which action will be performed
-                std::cout << "OPTIONS:\nA) Add coffe\nB) Deposit coins\nC) Change prices\nD) Change acceptable coins\n";
+                //Which action will be performed 
+                std::cout << "OPTIONS:\nA) Add coffee\nB) Deposit coins\nC) Change prices\nD) Change acceptable coins\n";
                 std::cin >> settingModeAction;
                 switch (settingModeAction)
                 {
@@ -43,7 +44,8 @@ int main()
                     break;
                 default:
                     std::cout << "Invalid input";
-                    exit(1);
+                    goto start;
+                    //exit(1);
                     break;
                 }
                 //Does the user wish to stay or exit the setting mode
