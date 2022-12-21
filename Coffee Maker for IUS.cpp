@@ -8,6 +8,10 @@
 #include <iostream>
 #include <cstdlib>
 
+using std::cin;
+using std::cout;
+using std::endl;
+
 int main()
 {
     char setModeOrUserMode;
@@ -20,15 +24,15 @@ int main()
     do {
         start:
         //WHICH MODE:
-        std::cout << "Do you wish the use the setting mode or operation mode <s/o>" << std::endl;
-        std::cin >> setModeOrUserMode;
+        cout << "Do you wish the use the setting mode or operation mode <s/o>" << std::endl;
+        cin >> setModeOrUserMode;
         if (setModeOrUserMode == 's') {
             //SETTING MODE
-            std::cout << "SETTING MODE:" << std::endl;
+            cout << "SETTING MODE:" << std::endl;
             do {
                 //Which action will be performed 
-                std::cout << "OPTIONS:\nA) Add coffee\nB) Deposit coins\nC) Change prices\nD) Change acceptable coins\n";
-                std::cin >> settingModeAction;
+                cout << "OPTIONS:\nA) Add coffee\nB) Deposit coins\nC) Change prices\nD) Change acceptable coins\n";
+                cin >> settingModeAction;
                 switch (settingModeAction)
                 {
                 case 'A':
@@ -44,31 +48,31 @@ int main()
                     //Process D: Changing acceptable coins
                     break;
                 default:
-                    std::cout << "Invalid input";
+                    cout << "Invalid input";
                     goto start;
                     //exit(1);
                     break;
                 }
                 //Does the user wish to stay or exit the setting mode
-                std::cout << "Do you wish to continue in the setting mode? <y/n>";
-                std::cin >> continueSettingMode;
+                cout << "Do you wish to continue in the setting mode? <y/n>";
+                cin >> continueSettingMode;
                 if (continueSettingMode == 'y') {
-                    std::cout << std::endl;
+                    cout << endl;
                 }
                 else if (continueSettingMode == 'n') {
                     break;
                 }
                 else {
-                    std::cout << "Invalid input";
+                    cout << "Invalid input";
                     exit(1);
                 }
             } while (true);
         }
         else if (setModeOrUserMode == 'o') {
-            std::cout << "OPERATION MODE:" << std::endl;
-            std::cout << "Coffee options:" << std::endl;
-            std::cout << "1) Espresso\n2) Cappucino\n3) Hot Chocolate\n4) Melange\n5) Americano" << std::endl;
-            std::cin >> coffeeChoice;
+            cout << "OPERATION MODE:" << endl;
+            cout << "Coffee options:" << endl;
+            cout << "1) Espresso\n2) Cappucino\n3) Hot Chocolate\n4) Melange\n5) Americano" << endl;
+            cin >> coffeeChoice;
             if (coffeeCups[coffeeChoice - 1] > 0) {
                 coffeeCups[coffeeChoice]--;
                 //void 
@@ -77,24 +81,24 @@ int main()
             } while (true);
         }
         else {
-            std::cout << "Invalid input" << std::endl;
+            cout << "Invalid input" << endl;
             exit(1);
         }
         //USE IT MORE OR NOT:
-        std::cout << "Do you wish to use the machine more? <y/n>" << std::endl;
-        std::cin >> endOfTheDay;
+        cout << "Do you wish to use the machine more? <y/n>" << endl;
+        cin >> endOfTheDay;
         if (endOfTheDay == 'y') {
-            std::cout << std::endl;
+            cout << endl;
         }
         else if (endOfTheDay == 'n') {
             break;
         }
         else {
-            std::cout << "Invalid input" << std::endl;
+            cout << "Invalid input" << endl;
             exit(1);
         }
     } while (true);
     //END OF THE DAY EVALUATION
-    std::cout << "END OF THE DAY EVALUATION: " << std::endl;
+    cout << "END OF THE DAY EVALUATION: " << endl;
     // TEst.
 }
