@@ -95,5 +95,5 @@ int main()
     } while (true);
     //END OF THE DAY EVALUATION
     std::cout << "END OF THE DAY EVALUATION: " << std::endl;
-    // TEst
+    // TEst.
 }
