@@ -85,8 +85,7 @@ int main()
                 //void 
             }*/
 
-            //fun CoffeeChecker(coffeeCups,5);
-            //IS THERE ANY CHANGE IN COMMITING RN?
+            //
             
         }
         else {
