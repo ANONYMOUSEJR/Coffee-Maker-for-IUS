@@ -9,6 +9,8 @@
 #include <iostream>
 #include <cstdlib>
 
+#include "operationMode.h"
+
 using std::cin;
 using std::cout;
 using std::endl;
@@ -22,6 +24,9 @@ int main()
     int coffeeCups[5] = { 3,3,3,3,3 };
     int coffeePrices[5] = { 2,2,3.5,3,1.5 };
     int coffeeChoice;
+
+    IceCream();
+
     do {
         start:
         //WHICH MODE:
