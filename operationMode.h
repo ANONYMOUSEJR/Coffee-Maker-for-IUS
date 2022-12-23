@@ -1,7 +1,6 @@
 #pragma once
-#include<iostream>
 bool ValidCoffee(int arr[], int sizeOfArr) {
-	std::cout<<" ";
+	>>
 	return 0;
 }
 
