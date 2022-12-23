@@ -8,7 +8,7 @@ using std::endl;
 void IceCream(){
 	cout << " IT WORKS MATE";
 }
-//This file is not avaliable immediately
+//This file is not avaliable immediately//OkiDoki
 int ReturnCoffeePosition(int arr[], int sizeOfArr) {
 	int userCoffeeChoice;
 	cout << "Please enter the number of your chosen hot beverage:\n ";
