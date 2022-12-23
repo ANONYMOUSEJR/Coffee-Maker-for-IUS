@@ -21,10 +21,12 @@ int main()
     char endOfTheDay;
     char settingModeAction;
     char continueSettingMode;
-    int coffeeCups[5] = { 3,3,3,3,3 };
-    int coffeePrices[5] = { 2,2,3.5,3,1.5 };
-    int coffeeChoice;
 
+    int coffeeCups[5] = { 3,3,3,3,3 };
+    double coffeePrices[5] = { 2,2,3.5,3,1.5 };//
+    int coffeeChoice;
+    int coinsAmount[7] = {3,3,3,3,3,3,3};//
+    int coinsAllowed[7] = {1,1,1,1,1,1,1};//
     IceCream();
 
     do {
@@ -79,14 +81,10 @@ int main()
             cout << "OPERATION MODE:" << endl;
             cout << "Coffee options:" << endl;
             cout << "1) Espresso\n2) Cappucino\n3) Hot Chocolate\n4) Melange\n5) Americano" << endl;
-            //cin >> coffeeChoice;
-            /*if (coffeeCups[coffeeChoice - 1] > 0) {
-                coffeeCups[coffeeChoice]--;
-                //void 
-            }*/
-
-            //
-            
+            int CoffeePosition;
+            CoffeePosition = ReturnCoffeePosition(coffeeCups,5);
+            cout << CoffeePosition;
+            cout << CoffeePayment(coinsAmount, coinsAllowed, coffeePrices, CoffeePosition);
         }
         else {
             cout << "Invalid input" << endl;
@@ -108,5 +106,5 @@ int main()
     } while (true);
     //END OF THE DAY EVALUATION
     cout << "END OF THE DAY EVALUATION: " << endl;
-    // TEst.
+    // Test.
 }
