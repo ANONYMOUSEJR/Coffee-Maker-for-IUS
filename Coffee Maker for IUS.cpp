@@ -32,6 +32,7 @@ int main()
         //WHICH MODE:
         cout << "Do you wish the use the setting mode or operation mode <s/o>" << std::endl;
         cin >> setModeOrUserMode;
+
         if (setModeOrUserMode == 's') {
             //SETTING MODE
             cout << "SETTING MODE:" << std::endl;
@@ -85,6 +86,7 @@ int main()
             }*/
 
             //fun CoffeeChecker(coffeeCups,5);
+            //IS THERE ANY CHANGE IN COMMITING RN?
             
         }
         else {
