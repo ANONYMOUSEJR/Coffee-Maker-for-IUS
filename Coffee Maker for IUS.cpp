@@ -5,7 +5,7 @@
 //               - Altan Berk Eren   210302301 SE
 
 //DID I CHANGE ANYTHING IN HERE?
-//Selma changed this file
+//Selma changed this file, she didnt
 #include <iostream>
 #include <cstdlib>
 
@@ -73,13 +73,14 @@ int main()
             cout << "OPERATION MODE:" << endl;
             cout << "Coffee options:" << endl;
             cout << "1) Espresso\n2) Cappucino\n3) Hot Chocolate\n4) Melange\n5) Americano" << endl;
-            cin >> coffeeChoice;
-            if (coffeeCups[coffeeChoice - 1] > 0) {
+            //cin >> coffeeChoice;
+            /*if (coffeeCups[coffeeChoice - 1] > 0) {
                 coffeeCups[coffeeChoice]--;
                 //void 
-            }
-            do {
-            } while (true);
+            }*/
+
+            //fun CoffeeChecker(coffeeCups,5);
+            
         }
         else {
             cout << "Invalid input" << endl;
