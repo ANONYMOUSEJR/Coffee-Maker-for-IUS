@@ -8,7 +8,7 @@ using std::endl;
 void IceCream(){
 	cout << " IT WORKS MATE";
 }
-//This file is not avaliable immediately//OkiDoki
+
 int ReturnCoffeePosition(int arr[], int sizeOfArr) {
 	int userCoffeeChoice;
 	cout << "Please enter the number of your chosen hot beverage:\n ";
@@ -73,6 +73,39 @@ double CoffeePayment(int amount[], int allowed[], double price[],int coffeeType)
 
 	} while (remainingPrice>0);
 	return -remainingPrice;
+}
+
+void ReturnMoney(double value[],int amount[],int allowed[], double change) {
+	cout << "Your change in coins: ";
+	double sumMoney=0;
+		/*if ((change>5) && (amount[6]>0) && (allowed[6] == 1)) {
+			cout << 5 << " ";
+			amount[6]--;
+		}*/
+	for (int moneyIndex = 6; moneyIndex >= 0; moneyIndex--) {
+		while ((change >= value[moneyIndex]) && (allowed[moneyIndex] == 1) && (amount[moneyIndex] > 0)) {
+			if (change >= 0.05) {
+				cout << value[moneyIndex] << " ";
+				
+			}
+			else if((change<=0.05) && (change>0) && (amount[0] > 0) &&(allowed[0]==1)) {
+				cout << 0.05;
+				
+			}
+			else {
+				break;
+			}
+			sumMoney = sumMoney + value[moneyIndex];
+			amount[moneyIndex]--;
+			change = change - value[moneyIndex];
+			
+		}
+		
+
+	}
+	
+
+	
 }
 
 void CoffeeDecr() {
