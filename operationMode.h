@@ -6,10 +6,6 @@ using std::cout;
 using std::endl;
 
 
-void IceCream(){
-	cout << " IT WORKS MATE";
-}
-
 int ReturnCoffeePosition(int arr[], int sizeOfArr) {
 	int userCoffeeChoice;
 	cout << "Please enter the number of your chosen hot beverage:\n ";
