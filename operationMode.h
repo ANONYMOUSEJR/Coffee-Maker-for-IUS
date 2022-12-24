@@ -5,6 +5,7 @@ using std::cin;
 using std::cout;
 using std::endl;
 
+
 void IceCream(){
 	cout << " IT WORKS MATE";
 }
@@ -23,7 +24,7 @@ int ReturnCoffeePosition(int arr[], int sizeOfArr) {
 }
 
 double CoffeePayment(int amount[], int allowed[], double price[],int coffeeType) {
-	double sumOfCoins=0;
+	double sumOfCoins=0;//delete this sometime later
 	double coin;
 	double remainingPrice;
 	int coinIndex;
@@ -32,9 +33,9 @@ double CoffeePayment(int amount[], int allowed[], double price[],int coffeeType)
 	coffeePrice = price[coffeeType];
 	remainingPrice = coffeePrice;
 	cout << "The coffee you have chosen costs "<<coffeePrice<<" BAM." << endl;
-	cout << "Please insert the money: " << endl;
+	cout << "Please insert the money: " << endl;//delete this sometime later
 	do {
-		cout << "Please insert "<<remainingPrice<<" KM more:" << endl;
+		cout << "Please insert "<<remainingPrice<<" BAM more:" << endl;
 		cin >> coin;
 		coinInFening = coin * 100;
 		switch(coinInFening){
@@ -75,22 +76,19 @@ double CoffeePayment(int amount[], int allowed[], double price[],int coffeeType)
 	return -remainingPrice;
 }
 
-void ReturnMoney(double value[],int amount[],int allowed[], double change) {
+void ReturnMoney(long double value[],int amount[],int allowed[], long double change) {
 	cout << "Your change in coins: ";
 	double sumMoney=0;
-		/*if ((change>5) && (amount[6]>0) && (allowed[6] == 1)) {
-			cout << 5 << " ";
-			amount[6]--;
-		}*/
+
 	for (int moneyIndex = 6; moneyIndex >= 0; moneyIndex--) {
+		
 		while ((change >= value[moneyIndex]) && (allowed[moneyIndex] == 1) && (amount[moneyIndex] > 0)) {
 			if (change >= 0.05) {
 				cout << value[moneyIndex] << " ";
 				
 			}
-			else if((change<=0.05) && (change>0) && (amount[0] > 0) &&(allowed[0]==1)) {
-				cout << 0.05;
-				
+			else if (change > 0) {
+				cout << change;
 			}
 			else {
 				break;
@@ -104,10 +102,13 @@ void ReturnMoney(double value[],int amount[],int allowed[], double change) {
 
 	}
 	
+	
+	
 
 	
 }
 
-void CoffeeDecr() {
-
+void CoffeePour(int amount[],int coffeeIndex) {
+	cout << "Your coffee is being prepared ;)";
+	amount[coffeeIndex]--;
 }

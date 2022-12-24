@@ -22,16 +22,14 @@ int main()
     char settingModeAction;
     char continueSettingMode;
 
-    int coffeeCups[5] = { 3,3,3,3,3 };
-    double coffeePrices[5] = { 2,2,3.5,3,1.5 };//
-    int CoffeePosition;
-    double Change;
-    //int coffeeChoice;
+    int coffeeCups[5] = { 3,3,3,3,3 }; //Number of each coffee
+    double coffeePrices[5] = { 2,2,3.5,3,1.5 }; //Prices of coffees
+    int CoffeePosition; //Index of choosen coffe
+    double Change; //Change that will be given back
     
-    double coinsValue[7] = { 0.05,0.1,0.2,0.5,1,2,5 };
-    int coinsAmount[7] = {3,3,3,3,3,3,3};
-    int coinsAllowed[7] = {1,1,1,1,1,1,1};//
-    IceCream();
+    long double coinsValue[7] = { 0.05,0.1,0.2,0.5,1,2,5 }; //Value of coins
+    int coinsAmount[7] = {3,3,3,3,3,3,3}; //Amount of coins
+    int coinsAllowed[7] = {1,1,1,1,1,1,1}; //Acceptable coins
 
     do {
         start:
@@ -46,6 +44,7 @@ int main()
                 //Which action will be performed 
                 cout << "OPTIONS:\nA) Add coffee\nB) Deposit coins\nC) Change prices\nD) Change acceptable coins\n";
                 cin >> settingModeAction;
+                //OMER, LOOK, MAKE A FUNCTION FOR SWIFTH CASE 
                 switch (settingModeAction)
                 {
                 case 'A':
@@ -87,7 +86,7 @@ int main()
             cout << "1) Espresso\n2) Cappucino\n3) Hot Chocolate\n4) Melange\n5) Americano" << endl;
             
             CoffeePosition = ReturnCoffeePosition(coffeeCups,5);
-            cout << CoffeePosition;
+            cout << CoffeePosition;//Delete this sometime later
             Change= CoffeePayment(coinsAmount, coinsAllowed, coffeePrices, CoffeePosition);
             cout << Change;
             ReturnMoney(coinsValue,coinsAmount,coinsAllowed,Change);
