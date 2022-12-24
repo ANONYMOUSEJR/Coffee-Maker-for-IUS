@@ -5,9 +5,11 @@
 //               - Altan Berk Eren   210302301 SE
 
 //DID I CHANGE ANYTHING IN HERE?
-//I CHANGED IT AGAIN
+//Selma changed this file, she didnt
 #include <iostream>
 #include <cstdlib>
+
+#include "operationMode.h"
 
 using std::cin;
 using std::cout;
@@ -19,14 +21,24 @@ int main()
     char endOfTheDay;
     char settingModeAction;
     char continueSettingMode;
+
     int coffeeCups[5] = { 3,3,3,3,3 };
-    int coffeePrices[5] = { 2,2,3.5,3,1.5 };
-    int coffeeChoice;
+    double coffeePrices[5] = { 2,2,3.5,3,1.5 };//
+    int CoffeePosition;
+    double Change;
+    //int coffeeChoice;
+    
+    double coinsValue[7] = { 0.05,0.1,0.2,0.5,1,2,5 };
+    int coinsAmount[7] = {3,3,3,3,3,3,3};
+    int coinsAllowed[7] = {1,1,1,1,1,1,1};//
+    IceCream();
+
     do {
         start:
         //WHICH MODE:
         cout << "Do you wish the use the setting mode or operation mode <s/o>" << std::endl;
         cin >> setModeOrUserMode;
+
         if (setModeOrUserMode == 's') {
             //SETTING MODE
             cout << "SETTING MODE:" << std::endl;
@@ -73,18 +85,18 @@ int main()
             cout << "OPERATION MODE:" << endl;
             cout << "Coffee options:" << endl;
             cout << "1) Espresso\n2) Cappucino\n3) Hot Chocolate\n4) Melange\n5) Americano" << endl;
-            cin >> coffeeChoice;
-            if (coffeeCups[coffeeChoice - 1] > 0) {
-                coffeeCups[coffeeChoice]--;
-                //void 
-            }
-            do {
-            } while (true);
+            
+            CoffeePosition = ReturnCoffeePosition(coffeeCups,5);
+            cout << CoffeePosition;
+            Change= CoffeePayment(coinsAmount, coinsAllowed, coffeePrices, CoffeePosition);
+            cout << Change;
+            ReturnMoney(coinsValue,coinsAmount,coinsAllowed,Change);
         }
         else {
             cout << "Invalid input" << endl;
             exit(1);
         }
+
         //USE IT MORE OR NOT:
         cout << "Do you wish to use the machine more? <y/n>" << endl;
         cin >> endOfTheDay;
@@ -98,8 +110,9 @@ int main()
             cout << "Invalid input" << endl;
             exit(1);
         }
+
     } while (true);
     //END OF THE DAY EVALUATION
     cout << "END OF THE DAY EVALUATION: " << endl;
-    // TEst.
+    // Test.
 }
