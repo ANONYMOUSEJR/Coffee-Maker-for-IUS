@@ -27,7 +27,7 @@ int main()
     int CoffeePosition; //Index of choosen coffe
     double Change; //Change that will be given back
     
-    long double coinsValue[7] = { 0.05,0.1,0.2,0.5,1,2,5 }; //Value of coins
+    const long double coinsValue[7] = { 0.05,0.1,0.2,0.5,1,2,5 }; //Value of coins
     int coinsAmount[7] = {3,3,3,3,3,3,3}; //Amount of coins
     bool coinsAllowed[7] = {true, true, true, true, true, true, true}; //Acceptable coins
 
