@@ -1,4 +1,8 @@
 #pragma once
-// For setting stuff up
 
 #include <iostream>
+
+using std::cin;
+using std::cout;
+using std::endl;
+

@@ -19,7 +19,7 @@ int ReturnCoffeePosition(int arr[], int sizeOfArr) {
 	} while (true);
 }
 
-double CoffeePayment(int amount[], int allowed[], double price[],int coffeeType) {
+double CoffeePayment(int amount[], bool allowed[], double price[],int coffeeType) {
 	double sumOfCoins=0;//delete this sometime later
 	double coin;
 	double remainingPrice;
@@ -60,7 +60,7 @@ double CoffeePayment(int amount[], int allowed[], double price[],int coffeeType)
 			cout << "This type of coin is not acceptable." << endl;
 			continue;
 		}
-		if (allowed[coinIndex] == 1) {
+		if (allowed[coinIndex]) {
 			amount[coinIndex]++;
 			remainingPrice = remainingPrice - coin;
 		}
@@ -72,13 +72,13 @@ double CoffeePayment(int amount[], int allowed[], double price[],int coffeeType)
 	return -remainingPrice;
 }
 
-void ReturnMoney(long double value[],int amount[],int allowed[], long double change) {
+void ReturnMoney(long double value[],int amount[],bool allowed[], long double change) {
 	cout << "Your change in coins: ";
 	double sumMoney=0;
 
 	for (int moneyIndex = 6; moneyIndex >= 0; moneyIndex--) {
 		
-		while ((change >= value[moneyIndex]) && (allowed[moneyIndex] == 1) && (amount[moneyIndex] > 0)) {
+		while ((change >= value[moneyIndex]) && (allowed[moneyIndex]) && (amount[moneyIndex] > 0)) {
 			if (change >= 0.05) {
 				cout << value[moneyIndex] << " ";
 				
@@ -107,4 +107,10 @@ void ReturnMoney(long double value[],int amount[],int allowed[], long double cha
 void CoffeePour(int amount[],int coffeeIndex) {
 	cout << "Your coffee is being prepared ;)";
 	amount[coffeeIndex]--;
+	/*
+	The coffee flowed from the machine in a smooth, steady stream, each droplet glistening in the light. 
+	It was like a dance, a beautiful, mesmerizing performance that drew the eye and captured the imagination.
+	As it made its way into the cup, the coffee seemed to come alive, filling the air with its rich, aromatic scent. 
+	It was a fragrance that spoke of comfort and warmth, of cozy nights by the fire and quiet moments of reflection.
+	*/
 }
