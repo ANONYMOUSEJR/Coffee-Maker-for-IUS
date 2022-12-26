@@ -72,7 +72,7 @@ double CoffeePayment(int amount[], bool allowed[], double price[],int coffeeType
 	return -remainingPrice;
 }
 
-void ReturnMoney(long double value[],int amount[],bool allowed[], long double change) {
+void ReturnMoney(const long double value[],int amount[],bool allowed[], long double change) {
 	cout << "Your change in coins: ";
 	double sumMoney=0;
 
