@@ -24,7 +24,7 @@ bool coinsAllowed[7] = {true, true, true, true, true, true, true}; //Acceptable 
 system ("cls");
 */
 
-void coinRule(bool arrAllow[], long double arrVal[]) {
+void coinRule(bool arrAllow[], const long double arrVal[]) {
 	int choice;
 	char allow;
 	do {

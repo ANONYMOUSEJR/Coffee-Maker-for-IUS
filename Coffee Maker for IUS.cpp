@@ -10,6 +10,7 @@
 #include <cstdlib>
 
 #include "operationMode.h"
+#include "SettingMode.h"
 
 using std::cin;
 using std::cout;
@@ -58,6 +59,7 @@ int main()
                     break;
                 case 'D':
                     //Process D: Changing acceptable coins
+                    coinRule(coinsAllowed,coinsValue);
                     break;
                 default:
                     cout << "Invalid input";
