@@ -79,13 +79,13 @@ void ReturnMoney(long double value[],int amount[],bool allowed[], long double ch
 	for (int moneyIndex = 6; moneyIndex >= 0; moneyIndex--) {
 		
 		while ((change >= value[moneyIndex]) && (allowed[moneyIndex]) && (amount[moneyIndex] > 0)) {
-			if (change >= 0.05) {
+			if (change >= 0) {// used to be change >= 0.05.
 				cout << value[moneyIndex] << " ";
 				
-			}
+			}/*
 			else if (change > 0) {
 				cout << change;
-			}
+			}*/
 			else {
 				break;
 			}
