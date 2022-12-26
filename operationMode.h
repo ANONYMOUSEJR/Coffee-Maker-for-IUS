@@ -1,9 +1,11 @@
 #pragma once
 #include <iostream>
+#include <cmath>
 
 using std::cin;
 using std::cout;
 using std::endl;
+using std::fabs;
 
 
 int ReturnCoffeePosition(int arr[], int sizeOfArr) {
@@ -72,7 +74,7 @@ double CoffeePayment(int amount[], bool allowed[], double price[],int coffeeType
 	return -remainingPrice;
 }
 
-void ReturnMoney(const long double value[],int amount[],bool allowed[], long double change) {
+void ReturnMoney(const long double value[],int amount[],bool allowed[], double change) {
 	cout << "Your change in coins: ";
 	double sumMoney=0;
 
@@ -89,13 +91,17 @@ void ReturnMoney(const long double value[],int amount[],bool allowed[], long dou
 			else {
 				break;
 			}
-			sumMoney = sumMoney + value[moneyIndex];
+			
 			amount[moneyIndex]--;
 			change = change - value[moneyIndex];
 			
 		}
 		
 
+	}
+	double isItEpsilon = fabs(change-0.05);
+	if (isItEpsilon < 0.001) {
+		cout << 0.05;
 	}
 	
 	
