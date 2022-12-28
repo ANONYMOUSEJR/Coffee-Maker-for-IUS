@@ -15,6 +15,7 @@
 using std::cin;
 using std::cout;
 using std::endl;
+using std::string;
 
 int main()
 {
@@ -23,8 +24,9 @@ int main()
     char settingModeAction;
     char continueSettingMode;
 
-    int coffeeCups[5] = { 3,3,3,3,3 }; //Number of each coffee
-    double coffeePrices[5] = { 2,2,3.5,3,1.5 }; //Prices of coffees
+    string coffeeNames[5] = { "Espresso", "Cappucino", "Hot Chocolate", "Melange", "Americano"};
+    int coffeeCups[5] = { 3,3,3,3,3 }; //Number of each coffee            
+    double coffeePrices[5] = { 2,2,3.5,3,1.5 }; //Prices of coffees       
     int CoffeePosition; //Index of choosen coffe
     double Change; //Change that will be given back
     
@@ -32,7 +34,7 @@ int main()
     int coinsAmount[7] = {3,3,3,3,3,3,3}; //Amount of coins
     bool coinsAllowed[7] = {true, true, true, true, true, true, true}; //Acceptable coins
 
-    do {
+    /*do {
         start:
         //WHICH MODE:
         cout << "Do you wish the use the setting mode or operation mode <s/o>" << std::endl;
@@ -64,7 +66,6 @@ int main()
                 default:
                     cout << "Invalid input";
                     goto start;
-                    //exit(1);
                     break;
                 }
                 //Does the user wish to stay or exit the setting mode
@@ -112,8 +113,12 @@ int main()
             exit(1);
         }
 
-    } while (true);
+    } while (true);*/
+
+    settingModeMenu(coinsValue, coffeePrices, coffeeNames, coinsAmount, coffeeCups, coinsAllowed);
+
     //END OF THE DAY EVALUATION
     cout << "END OF THE DAY EVALUATION: " << endl;
     // Test.
+    return 0;
 }
