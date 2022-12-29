@@ -99,7 +99,7 @@ void ReturnMoney(const long double value[],int amount[],bool allowed[], double c
 		
 
 	}
-	double isItEpsilon = fabs(change-0.05);
+	double isItEpsilon = fabs(change-0.05); 
 	if (isItEpsilon < 0.001) {
 		cout << 0.05;
 	}
