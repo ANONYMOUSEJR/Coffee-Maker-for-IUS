@@ -10,6 +10,7 @@
 #include "operationMode.h"
 #include "SettingMode.h"
 #include "QualityOfLife.h"
+#include "Log.h"
 
 using std::cin;
 using std::cout;
@@ -80,6 +81,7 @@ int main()
 
     //END OF THE DAY EVALUATION
     cout << "END OF THE DAY EVALUATION: " << endl;
+    logCoffee(coffeeCups);
     // Test.
     return 0;
 }
