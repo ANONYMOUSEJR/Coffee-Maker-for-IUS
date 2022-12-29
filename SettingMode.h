@@ -13,7 +13,11 @@ using std::cout;
 using std::endl;
 using std::string;
 
-// Note to self: Create a flush function...
+/*
+Note to self : Create a flush function...
+
+*/
+
 
 
 /*
