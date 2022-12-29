@@ -17,6 +17,7 @@ int ReturnCoffeePosition(int arr[], int sizeOfArr) {
 		cin >> userCoffeeChoice;
 		if ((userCoffeeChoice == 1) || (userCoffeeChoice == 2) || (userCoffeeChoice == 3) || (userCoffeeChoice == 4) || (userCoffeeChoice == 5)) {
 			if (arr[(userCoffeeChoice - 1)] > 0) {
+				arr[userCoffeeChoice]--;
 				return (userCoffeeChoice - 1);
 			}
 		}
