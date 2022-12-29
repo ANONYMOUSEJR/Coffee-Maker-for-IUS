@@ -8,7 +8,7 @@ using namespace std;
 #include <chrono>
 #include <thread>
 using std::this_thread::sleep_for;
-using std::chrono::seconds;
+using std::chrono::milliseconds;
 
 // Quality Of Life Functions:
 
@@ -19,10 +19,10 @@ void Boundary() {
 
 // Creates the three dot loading thing...
 void pause() {
-	sleep_for(seconds(1)); cout << ".";
-	sleep_for(seconds(1)); cout << ".";
-	sleep_for(seconds(1)); cout << ".";
-	sleep_for(seconds(1));
+	sleep_for(milliseconds(500)); cout << ".";
+	sleep_for(milliseconds(500)); cout << ".";
+	sleep_for(milliseconds(500)); cout << ".";
+	sleep_for(milliseconds(500));
 }
 
 // Clears the screen.
