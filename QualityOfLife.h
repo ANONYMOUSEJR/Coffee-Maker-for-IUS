@@ -14,7 +14,7 @@ using std::chrono::milliseconds;
 
 // Just to prettyfy stuff...
 void Boundary() {
-	cout << "*****************************************" << endl;
+	cout << "***********************************************************" << endl;
 }
 
 // Creates the three dot loading thing...
@@ -47,6 +47,7 @@ void easterEgg() {
 		sleep_for(milliseconds(50));
 		x++;
 	}
+	cls();
 }
 
 // Clears out a pottentially corrupted cin.

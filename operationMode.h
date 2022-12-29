@@ -130,12 +130,6 @@ void CoffeePour(int amount[],int coffeeIndex) {
 	pause();
 	amount[coffeeIndex]--;
 	cout << "Enjoy your coffe"<<endl;
-	/*
-	The coffee flowed from the machine in a smooth, steady stream, each droplet glistening in the light. 
-	It was like a dance, a beautiful, mesmerizing performance that drew the eye and captured the imagination.
-	As it made its way into the cup, the coffee seemed to come alive, filling the air with its rich, aromatic scent. 
-	It was a fragrance that spoke of comfort and warmth, of cozy nights by the fire and quiet moments of reflection.
-	*/
 }
 
 /*
