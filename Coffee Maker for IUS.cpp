@@ -50,6 +50,7 @@ int main()
             CoffeePosition = ReturnCoffeePosition(coffeeCups,coffeeNames);
             Change= CoffeePayment(coinsAmount, coinsAllowed, coffeePrices, CoffeePosition);
             ReturnMoney(coinsValue,coinsAmount,coinsAllowed,Change);
+            CoffeePour(coffeeCups,CoffeePosition);
         }
         else {
             cout << "Invalid input" << endl;

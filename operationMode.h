@@ -21,7 +21,6 @@ int ReturnCoffeePosition(int arr[],string names[]) {
 		cin >> userCoffeeChoice;
 		if ((userCoffeeChoice == 1) || (userCoffeeChoice == 2) || (userCoffeeChoice == 3) || (userCoffeeChoice == 4) || (userCoffeeChoice == 5)) {
 			if (arr[(userCoffeeChoice - 1)] > 0) {
-				arr[userCoffeeChoice]--;
 				return (userCoffeeChoice - 1);
 			}
 		}
@@ -85,6 +84,9 @@ double CoffeePayment(int amount[], bool allowed[], double price[],int coffeeType
 }
 
 void ReturnMoney(const long double value[],int amount[],bool allowed[], double change) {
+	if (change == 0) {
+		return;
+	}
 	cout << "Your change in coins: ";
 	double sumMoney=0;
 
@@ -117,7 +119,8 @@ void ReturnMoney(const long double value[],int amount[],bool allowed[], double c
 }
 
 void CoffeePour(int amount[],int coffeeIndex) {
-	cout << "Your coffee is being prepared ;)";
+	cout << "Your coffee is being prepared ;)"<<endl;
+	pause();
 	amount[coffeeIndex]--;
 	/*
 	The coffee flowed from the machine in a smooth, steady stream, each droplet glistening in the light. 
