@@ -90,7 +90,7 @@ int main()
     cout << "Creating file"; pause();
     logCoffee(coffeeCups);
     cout << "Look for it in the text file attached ;)" << endl;
-    system("notepad.exe README.md"); // ACTUALLY OPENS UP THE FILE XD!!!!!!!!@!@q!!@!@!!!!!!!retwe%yre^%#qrtr
+    system("notepad.exe database.txt"); // ACTUALLY OPENS UP THE FILE XD!!!!!!!!@!@q!!@!@!!!!!!!retwe%yre^%#qrtr
 
     return 0;
 }
