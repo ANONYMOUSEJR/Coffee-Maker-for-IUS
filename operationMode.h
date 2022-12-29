@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <cmath>
+#include "qualityOfLife.h"
 
 using std::cin;
 using std::cout;
@@ -8,21 +9,30 @@ using std::endl;
 using std::fabs;
 
 
-int ReturnCoffeePosition(int arr[], int sizeOfArr) {
+
+int ReturnCoffeePosition(int arr[],string names[]) {
 	int userCoffeeChoice;
+	cout << "Coffee options:" << endl;
+	for (int i = 0; i < 5; i++) {
+		cout << i+1 << ") " << names[i] << endl;
+	}
 	cout << "Please enter the number of your chosen hot beverage:\n ";
 	do {
 		cin >> userCoffeeChoice;
 		if ((userCoffeeChoice == 1) || (userCoffeeChoice == 2) || (userCoffeeChoice == 3) || (userCoffeeChoice == 4) || (userCoffeeChoice == 5)) {
 			if (arr[(userCoffeeChoice - 1)] > 0) {
+				arr[userCoffeeChoice]--;
 				return (userCoffeeChoice - 1);
 			}
+		}
+		else {
+			cout << "We do not have that coffee, please pick something else" << endl;
 		}
 	} while (true);
 }
 
 double CoffeePayment(int amount[], bool allowed[], double price[],int coffeeType) {
-	double sumOfCoins=0;//delete this sometime later
+	
 	double coin;
 	double remainingPrice;
 	int coinIndex;
@@ -31,7 +41,7 @@ double CoffeePayment(int amount[], bool allowed[], double price[],int coffeeType
 	coffeePrice = price[coffeeType];
 	remainingPrice = coffeePrice;
 	cout << "The coffee you have chosen costs "<<coffeePrice<<" BAM." << endl;
-	cout << "Please insert the money: " << endl;//delete this sometime later
+	
 	do {
 		cout << "Please insert "<<remainingPrice<<" BAM more:" << endl;
 		cin >> coin;
@@ -99,15 +109,11 @@ void ReturnMoney(const long double value[],int amount[],bool allowed[], double c
 		
 
 	}
-	double isItEpsilon = fabs(change-0.05);
+	double isItEpsilon = fabs(change-0.05); 
 	if (isItEpsilon < 0.001) {
 		cout << 0.05;
-	}
-	
-	
-	
-
-	
+	}	
+	cout << endl;
 }
 
 void CoffeePour(int amount[],int coffeeIndex) {
@@ -120,3 +126,8 @@ void CoffeePour(int amount[],int coffeeIndex) {
 	It was a fragrance that spoke of comfort and warmth, of cozy nights by the fire and quiet moments of reflection.
 	*/
 }
+
+/*
+* Kupit makarone, jaje, sampon za kosu, germu i abc sir
+* TOALET PAPIR!
+*/
