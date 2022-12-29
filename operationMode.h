@@ -9,7 +9,7 @@ using std::endl;
 using std::fabs;
 
 
-
+//Input which coffee the user wants, and returns its index position
 int ReturnCoffeePosition(int arr[],string names[]) {
 	int userCoffeeChoice;
 	cout << "Coffee options:" << endl;
@@ -23,6 +23,9 @@ int ReturnCoffeePosition(int arr[],string names[]) {
 			if (arr[(userCoffeeChoice - 1)] > 0) {
 				return (userCoffeeChoice - 1);
 			}
+			else {
+				cout << "We are out of " << names[userCoffeeChoice - 1] << ", please pick soomething else." << endl;
+			}
 		}
 		else {
 			cout << "We do not have that coffee, please pick something else" << endl;
@@ -30,6 +33,7 @@ int ReturnCoffeePosition(int arr[],string names[]) {
 	} while (true);
 }
 
+//Inserting appropirate coins in the machine, and returns how much change should be given
 double CoffeePayment(int amount[], bool allowed[], double price[],int coffeeType) {
 	
 	double coin;
@@ -83,6 +87,7 @@ double CoffeePayment(int amount[], bool allowed[], double price[],int coffeeType
 	return -remainingPrice;
 }
 
+//Giving back change
 void ReturnMoney(const long double value[],int amount[],bool allowed[], double change) {
 	if (change == 0) {
 		return;
@@ -118,6 +123,7 @@ void ReturnMoney(const long double value[],int amount[],bool allowed[], double c
 	cout << endl;
 }
 
+//Pouring coffee
 void CoffeePour(int amount[],int coffeeIndex) {
 	cout << "Your coffee is being prepared ;)"<<endl;
 	pause();
