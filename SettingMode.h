@@ -17,7 +17,11 @@ Note to self :
 * - The setting mode should only allow the user to add...
 */
 
-
+/*
+* 
+*cin.clear();
+*cin.ignore(numeric_limits<streamsize>::max(), '\n');
+*/
 
 /*
 int coffeeCups[5] = { 3,3,3,3,3 }; //Number of each coffee
@@ -45,46 +49,30 @@ void coffeeInvent(int cAmnt[], string cTypes[]) {
 	cout << "6) Return." << endl << "~> ";
 	cin >> choice;
 	
-	switch (choice){
-	case 1:
+	if ((choice >= 1) && (choice <= 5)) {
 		cout << cAmnt[choice - 1] << " ~> ";
-		cin >> temp;
-		if (isPos(temp)) { goto def; }else{ cAmnt[choice - 1] = temp;} // Checks if the Users input is pos, if it is it goes aheada with the change.
+			cin >> temp;
+			if (!isPos(temp)) { goto start; }
+			else { cAmnt[choice - 1] = temp; } // Checks if the Users input is pos, if it is it goes aheada with the change.
 		goto start;
-
-	case 2:
-		cout << cAmnt[choice - 1] << " ~> ";
-		cin >> cAmnt[choice - 1];
-		goto start;
-
-	case 3:
-		cout << cAmnt[choice - 1] << " ~> ";
-		cin >> cAmnt[choice - 1];
-		goto start;
-
-	case 4:
-		cout << cAmnt[choice - 1] << " ~> ";
-		cin >> cAmnt[choice - 1];
-		goto start;
-
-	case 5:
-		cout << cAmnt[choice - 1] << " ~> ";
-		cin >> cAmnt[choice - 1];
-		goto start;
-	case 6:
+	}
+	else if (choice == 6) {
 		cls();
 		return;
-
-	default:
-		def:
+	}
+	else{
 		cout << "Your input is invalid, try again";
+		cin.clear();
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
 		pause();
 		goto start;
 	}
+
 }
 
 void coinInvent(int coinAmnt[], const long double arrVal[]) {
 	short choice;
+	int temp;
 
 	start:
 	cls();
@@ -94,6 +82,12 @@ void coinInvent(int coinAmnt[], const long double arrVal[]) {
 	}
 	cout << "8) Return." << endl << "~> ";
 	cin >> choice;
+
+	if ((choice >= 1) || (choice <= 7)) {
+		cout << coinAmnt[choice - 1] << " ~> ";
+		cin >> temp;
+		goto start;
+	}
 
 	switch (choice){
 	case 1:
