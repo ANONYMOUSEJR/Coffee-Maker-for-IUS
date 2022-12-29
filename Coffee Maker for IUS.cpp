@@ -15,6 +15,7 @@
 using std::cin;
 using std::cout;
 using std::endl;
+using std::string;
 
 int main()
 {
@@ -23,8 +24,9 @@ int main()
     char settingModeAction;
     char continueSettingMode;
 
-    int coffeeCups[5] = { 3,3,3,3,3 }; //Number of each coffee
-    double coffeePrices[5] = { 2,2,3.5,3,1.5 }; //Prices of coffees
+    string coffeeNames[5] = { "Espresso", "Cappucino", "Hot Chocolate", "Melange", "Americano"};
+    int coffeeCups[5] = { 3,3,3,3,3 }; //Number of each coffee            
+    double coffeePrices[5] = { 2,2,3.5,3,1.5 }; //Prices of coffees       
     int CoffeePosition; //Index of choosen coffe
     double Change; //Change that will be given back
     
@@ -40,47 +42,9 @@ int main()
 
         if (setModeOrUserMode == 's') {
             //SETTING MODE
-            cout << "SETTING MODE:" << std::endl;
-            do {
-                //Which action will be performed 
-                cout << "OPTIONS:\nA) Add coffee\nB) Deposit coins\nC) Change prices\nD) Change acceptable coins\n";
-                cin >> settingModeAction;
-                //OMER, LOOK, MAKE A FUNCTION FOR SWIFTH CASE 
-                switch (settingModeAction)
-                {
-                case 'A':
-                    //Process A: Adding coffee
-                    break;
-                case 'B':
-                    //Process B: Depositing coins
-                    break;
-                case 'C':
-                    //Process C: Changing prices
-                    break;
-                case 'D':
-                    //Process D: Changing acceptable coins
-                    coinRule(coinsAllowed,coinsValue);
-                    break;
-                default:
-                    cout << "Invalid input";
-                    goto start;
-                    //exit(1);
-                    break;
-                }
-                //Does the user wish to stay or exit the setting mode
-                cout << "Do you wish to continue in the setting mode? <y/n>";
-                cin >> continueSettingMode;
-                if (continueSettingMode == 'y') {
-                    cout << endl;
-                }
-                else if (continueSettingMode == 'n') {
-                    break;
-                }
-                else {
-                    cout << "Invalid input";
-                    exit(1);
-                }
-            } while (true);
+            cout << "SETTING MODE:" << endl;
+            settingModeMenu(coinsValue, coffeePrices, coffeeNames, coinsAmount, coffeeCups, coinsAllowed);
+            
         }
         else if (setModeOrUserMode == 'o') {
             cout << "OPERATION MODE:" << endl;
@@ -113,7 +77,10 @@ int main()
         }
 
     } while (true);
+
+
     //END OF THE DAY EVALUATION
     cout << "END OF THE DAY EVALUATION: " << endl;
     // Test.
+    return 0;
 }
