@@ -11,10 +11,8 @@ using std::string;
 
 /*
 Note to self : 
-* - Create a flush function...
-* Issues:
-* - User shouldnt be able to enter a negative number...
-* - The setting mode should only allow the user to add...
+* - Fix the true false stuff.
+*  - Remove switch case statements.
 */
 
 /*
@@ -62,8 +60,7 @@ void coffeeInvent(int cAmnt[], string cTypes[]) {
 	}
 	else{
 		cout << "Your input is invalid, try again";
-		cin.clear();
-		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		cinFlush();
 		pause();
 		goto start;
 	}
