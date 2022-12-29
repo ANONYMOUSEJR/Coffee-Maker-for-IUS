@@ -27,6 +27,7 @@ void logCoffee(int coffeeCups[], int coinsAmmount[]){
         
         case 0:
                 dbW<<"Latte: "<<coffeeCups[i]<<'\n';
+                //ctotal + = 1 * coffeeCups[i];
             break;
 
         case 1:
