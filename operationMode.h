@@ -8,6 +8,7 @@ using std::endl;
 using std::fabs;
 
 
+
 int ReturnCoffeePosition(int arr[], int sizeOfArr) {
 	int userCoffeeChoice;
 	cout << "Please enter the number of your chosen hot beverage:\n ";
@@ -22,7 +23,7 @@ int ReturnCoffeePosition(int arr[], int sizeOfArr) {
 }
 
 double CoffeePayment(int amount[], bool allowed[], double price[],int coffeeType) {
-	double sumOfCoins=0;//delete this sometime later
+	
 	double coin;
 	double remainingPrice;
 	int coinIndex;
@@ -31,7 +32,7 @@ double CoffeePayment(int amount[], bool allowed[], double price[],int coffeeType
 	coffeePrice = price[coffeeType];
 	remainingPrice = coffeePrice;
 	cout << "The coffee you have chosen costs "<<coffeePrice<<" BAM." << endl;
-	cout << "Please insert the money: " << endl;//delete this sometime later
+	
 	do {
 		cout << "Please insert "<<remainingPrice<<" BAM more:" << endl;
 		cin >> coin;
@@ -115,3 +116,8 @@ void CoffeePour(int amount[],int coffeeIndex) {
 	It was a fragrance that spoke of comfort and warmth, of cozy nights by the fire and quiet moments of reflection.
 	*/
 }
+
+/*
+* Kupit makarone, jaje, sampon za kosu, germu i abc sir
+* TOALET PAPIR!
+*/

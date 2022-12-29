@@ -4,8 +4,6 @@
 //               - Omer Becic        220302287 SE
 //               - Altan Berk Eren   210302301 SE
 
-//DID I CHANGE ANYTHING IN HERE?
-//Selma changed this file, she didnt
 #include <iostream>
 #include <cstdlib>
 
@@ -84,3 +82,6 @@ int main()
     // Test.
     return 0;
 }
+/*
+* https://www.youtube.com/watch?v=Uf0AnY9D9gw
+*/
