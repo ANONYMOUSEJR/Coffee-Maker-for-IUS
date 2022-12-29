@@ -9,8 +9,9 @@
 #include <cstdlib>
 
 #include "operationMode.h"
-#include "SettingMode.h"
-#include "QualityOfLife.h"
+#include "settingMode.h"
+#include "qualityOfLife.h"
+#include "log.h"
 
 using std::cin;
 using std::cout;
@@ -86,7 +87,11 @@ int main()
 
     //END OF THE DAY EVALUATION
     cout << "END OF THE DAY EVALUATION: " << endl;
+    cout << "Creating file"; pause();
+    logCoffee(coffeeCups);
     cout << "Look for it in the text file attached ;)" << endl;
+    system("notepad.exe README.md"); // ACTUALLY OPENS UP THE FILE XD!!!!!!!!@!@q!!@!@!!!!!!!retwe%yre^%#qrtr
+
     return 0;
 }
 /*
