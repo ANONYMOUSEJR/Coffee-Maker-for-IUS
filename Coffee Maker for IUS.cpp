@@ -25,7 +25,7 @@ int main()
     char continueSettingMode;
 
     string coffeeNames[5] = { "Espresso", "Cappucino", "Hot Chocolate", "Melange", "Americano"};
-    int coffeeCups[5] = { 3,3,3,3,3 }; //Number of each coffee            
+    unsigned int coffeeCups[5] = { 3,3,3,3,3 }; //Number of each coffee            
     double coffeePrices[5] = { 2,2,3.5,3,1.5 }; //Prices of coffees       
     int CoffeePosition; //Index of choosen coffe
     double Change; //Change that will be given back

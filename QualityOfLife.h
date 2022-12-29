@@ -25,7 +25,17 @@ void pause() {
 	sleep_for(seconds(1));
 }
 
-// 
+// Clears the screen.
 void cls() {
 	system("cls");
+}
+
+// Checks if user input is Positive...
+bool isPos(int num) {
+	if (num > 0) {
+		return true;
+	}
+	else {
+		return false;
+	}
 }

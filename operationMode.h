@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 #include <cmath>
-#include "QualityOfLife.h"
+#include "qualityOfLife.h"
 
 using std::cin;
 using std::cout;

@@ -130,10 +130,10 @@
     <ClCompile Include="Coffee Maker for IUS.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Log.h" />
+    <ClInclude Include="log.h" />
     <ClInclude Include="operationMode.h" />
-    <ClInclude Include="QualityOfLife.h" />
-    <ClInclude Include="SettingMode.h" />
+    <ClInclude Include="qualityOfLife.h" />
+    <ClInclude Include="settingMode.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

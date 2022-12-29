@@ -48,6 +48,7 @@ void coffeeInvent(int cAmnt[], string cTypes[]) {
 	case 1:
 		cout << cAmnt[choice - 1] << " ~> ";
 		cin >> cAmnt[choice - 1];
+		if (isPos(cAmnt[choice - 1])) { goto def; } // Checks if the Users input is pos.
 		goto start;
 
 	case 2:
@@ -74,6 +75,7 @@ void coffeeInvent(int cAmnt[], string cTypes[]) {
 		return;
 
 	default:
+		def:
 		cout << "Your input is invalid, try again";
 		pause();
 		goto start;
