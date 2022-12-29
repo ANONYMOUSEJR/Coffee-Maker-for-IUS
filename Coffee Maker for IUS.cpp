@@ -9,8 +9,8 @@
 
 #include "operationMode.h"
 #include "SettingMode.h"
-#include "QualityOfLife.h"
-#include "Log.h"
+#include "qualityOfLife.h"
+#include "log.h"
 
 using std::cin;
 using std::cout;
