@@ -18,6 +18,7 @@ int ReturnCoffeePosition(int arr[],string names[]) {
 	}
 	cout << "Please enter the number of your chosen hot beverage:\n ";
 	do {
+		cout << "~> ";
 		cin >> userCoffeeChoice;
 		if ((userCoffeeChoice == 1) || (userCoffeeChoice == 2) || (userCoffeeChoice == 3) || (userCoffeeChoice == 4) || (userCoffeeChoice == 5)) {
 			if (arr[(userCoffeeChoice - 1)] > 0) {
@@ -46,7 +47,7 @@ double CoffeePayment(int amount[], bool allowed[], double price[],int coffeeType
 	cout << "The coffee you have chosen costs "<<coffeePrice<<" BAM." << endl;
 	
 	do {
-		cout << "Please insert "<<remainingPrice<<" BAM more:" << endl;
+		cout << "Please insert "<<remainingPrice<<" BAM more:" << endl<<"~> ";
 		cin >> coin;
 		coinInFening = coin * 100;
 		switch(coinInFening){
@@ -128,6 +129,7 @@ void CoffeePour(int amount[],int coffeeIndex) {
 	cout << "Your coffee is being prepared ;)"<<endl;
 	pause();
 	amount[coffeeIndex]--;
+	cout << "Enjoy your coffe"<<endl;
 	/*
 	The coffee flowed from the machine in a smooth, steady stream, each droplet glistening in the light. 
 	It was like a dance, a beautiful, mesmerizing performance that drew the eye and captured the imagination.

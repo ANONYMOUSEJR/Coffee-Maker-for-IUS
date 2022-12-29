@@ -8,6 +8,7 @@
 #include <iostream>
 #include <cstdlib>
 
+
 #include "operationMode.h"
 #include "settingMode.h"
 #include "qualityOfLife.h"
@@ -20,6 +21,7 @@ using std::string;
 
 int main()
 {
+  
     //FUNCTIONAL VARIABLES
     char setModeOrUserMode;   //Which mode to use
     char endOfTheDay;         //Finnish the machine
@@ -51,6 +53,9 @@ int main()
             Change= CoffeePayment(coinsAmount, coinsAllowed, coffeePrices, CoffeePosition);
             ReturnMoney(coinsValue,coinsAmount,coinsAllowed,Change);
             CoffeePour(coffeeCups,CoffeePosition);
+        }
+        else if (setModeOrUserMode == 'e') {
+            easterEgg();
         }
         else {
             cout << "Invalid input" << endl;
