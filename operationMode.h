@@ -10,8 +10,12 @@ using std::fabs;
 
 
 
-int ReturnCoffeePosition(int arr[], int sizeOfArr) {
+int ReturnCoffeePosition(int arr[],string names[]) {
 	int userCoffeeChoice;
+	cout << "Coffee options:" << endl;
+	for (int i = 0; i < 5; i++) {
+		cout << i+1 << ") " << names[i] << endl;
+	}
 	cout << "Please enter the number of your chosen hot beverage:\n ";
 	do {
 		cin >> userCoffeeChoice;
@@ -20,6 +24,9 @@ int ReturnCoffeePosition(int arr[], int sizeOfArr) {
 				arr[userCoffeeChoice]--;
 				return (userCoffeeChoice - 1);
 			}
+		}
+		else {
+			cout << "We do not have that coffee, please pick something else" << endl;
 		}
 	} while (true);
 }
@@ -106,6 +113,7 @@ void ReturnMoney(const long double value[],int amount[],bool allowed[], double c
 	if (isItEpsilon < 0.001) {
 		cout << 0.05;
 	}	
+	cout << endl;
 }
 
 void CoffeePour(int amount[],int coffeeIndex) {

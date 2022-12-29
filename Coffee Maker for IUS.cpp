@@ -47,14 +47,8 @@ int main()
             
         }
         else if (setModeOrUserMode == 'o') {
-            cout << "OPERATION MODE:" << endl;
-            cout << "Coffee options:" << endl;
-            cout << "1) Espresso\n2) Cappucino\n3) Hot Chocolate\n4) Melange\n5) Americano" << endl;
-            
-            CoffeePosition = ReturnCoffeePosition(coffeeCups,5);
-            cout << CoffeePosition;//Delete this sometime later
+            CoffeePosition = ReturnCoffeePosition(coffeeCups,coffeeNames);
             Change= CoffeePayment(coinsAmount, coinsAllowed, coffeePrices, CoffeePosition);
-            cout << Change;
             ReturnMoney(coinsValue,coinsAmount,coinsAllowed,Change);
         }
         else {

@@ -1,5 +1,5 @@
 Latte: 3
-Capu: 3
+Capu: 2
 Kafa: 3
 Kahve: 3
 Kola: 3
