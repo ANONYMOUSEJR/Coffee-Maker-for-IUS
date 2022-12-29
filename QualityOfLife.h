@@ -22,7 +22,7 @@ void pause() {
 	sleep_for(milliseconds(500)); cout << ".";
 	sleep_for(milliseconds(500)); cout << ".";
 	sleep_for(milliseconds(500)); cout << ".";
-	sleep_for(milliseconds(500));
+	sleep_for(milliseconds(500)); cout << endl;
 }
 
 // Clears the screen.
@@ -33,9 +33,9 @@ void cls() {
 // Checks if user input is Positive...
 bool isPos(int num) {
 	if (num > 0) {
-		return false;
+		return true;
 	}
 	else {
-		return true;
+		return false;
 	}
 }

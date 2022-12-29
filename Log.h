@@ -6,25 +6,25 @@
 #include<fstream>
 #include<string>
 #include <algorithm>
+#include"time.h"
 
 
 void logCoffee(int coffeeCups[], int coinsAmmount[]){
 
     time_t rawDate = time(nullptr);// taking the time as second
-    std::string date = ctime(&rawDate);
+    char timestr[30];
+    //std::string date = ctime_s(timestr, sizeof timestr, &rawDate);
 
-    std::replace(date.begin(), date.end(), ' ','_');
-    std::replace(date.begin(), date.end(), ':','-');
-    std::replace(date.begin(), date.end(), '\n','.');
+    //std::replace(date.begin(), date.end(), ' ','_');
+    //std::replace(date.begin(), date.end(), ':','-');
 
-    date += "txt";
 
     //std::cout<< date <<"\n";
 
 
-    std::ofstream dbW(date,std::ios_base::out);
-
-    dbW<<"lefted Coffee:\n";
+    std::ofstream dbW("dataBase.txt", std::ios_base::out);
+    //dbW << date;
+    dbW<<"Coffee Left:\n";
     for(int i=0; i<5; i++){
         switch (i){
         
