@@ -11,6 +11,7 @@
 
 #include "operationMode.h"
 #include "SettingMode.h"
+#include "QualityOfLife.h"
 
 using std::cin;
 using std::cout;

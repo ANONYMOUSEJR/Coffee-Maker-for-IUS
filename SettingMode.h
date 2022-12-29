@@ -1,11 +1,7 @@
 #pragma once
 
 #include <iostream>
-// The following two libraries and standards are for the time...
-#include <chrono>
-#include <thread>
-using std::this_thread::sleep_for;
-using std::chrono::seconds;
+#include "QualityOfLife.h"
 
 // These are just there to make life easier.
 using std::cin;
@@ -14,8 +10,11 @@ using std::endl;
 using std::string;
 
 /*
-Note to self : Create a flush function...
-
+Note to self : 
+* - Create a flush function...
+* Issues:
+* - User shouldnt be able to enter a negative number...
+* - The setting mode should only allow the user to add...
 */
 
 
@@ -31,38 +30,7 @@ bool coinsAllowed[7] = {true, true, true, true, true, true, true}; //Acceptable 
 system ("cls");
 return; if ya wanna exit a void func.
 */
-// Quality Of Life Functions:
-void Boundary() {
-	cout << "*****************************************" << endl;
-}
-void pause() {
-	sleep_for(seconds(1)); cout << ".";
-	sleep_for(seconds(1)); cout << ".";
-	sleep_for(seconds(1)); cout << ".";
-	sleep_for(seconds(1));
-}
-void cls() {
-	system("cls");
-}
-// Still working on this...
-void cont() {
-	// Does the user wish to stay or exit the setting mode?
-	char continueSettingMode;
 
-	start:
-	cout << "Do you wish to continue in the setting mode? <y/n>";
-	cin >> continueSettingMode;
-	if (continueSettingMode == 'y') {
-		cout << endl;
-	}
-	else if (continueSettingMode == 'n') {
-		return;
-	}
-	else {
-		cout << "Invalid input";
-		goto start;
-	}
-}
 
 void coffeeInvent(int cAmnt[], string cTypes[]) {
 	short choice;

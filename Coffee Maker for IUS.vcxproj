@@ -132,6 +132,7 @@
   <ItemGroup>
     <ClInclude Include="Log.h" />
     <ClInclude Include="operationMode.h" />
+    <ClInclude Include="QualityOfLife.h" />
     <ClInclude Include="SettingMode.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
