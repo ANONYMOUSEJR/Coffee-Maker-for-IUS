@@ -62,8 +62,7 @@ void coffeeInvent(int cAmnt[], string cTypes[]) {
 	}
 	else{
 		cout << "Your input is invalid, try again";
-		cin.clear();
-		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		cinFlush();
 		pause();
 		goto start;
 	}

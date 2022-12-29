@@ -39,3 +39,9 @@ bool isPos(int num) {
 		return false;
 	}
 }
+
+// Clears out a pottentially corrupted cin.
+void cinFlush() {
+	cin.clear();
+	cin.ignore(numeric_limits<streamsize>::max(), '\n');
+}
