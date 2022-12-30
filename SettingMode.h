@@ -16,6 +16,12 @@ Note to self :
 */
 
 /*
+* 
+*cin.clear();
+*cin.ignore(numeric_limits<streamsize>::max(), '\n');
+*/
+
+/*
 int coffeeCups[5] = { 3,3,3,3,3 }; //Number of each coffee
 double coffeePrices[5] = { 2,2,3.5,3,1.5 }; //Prices of coffees
 int CoffeePosition; //Index of chosen coffee
@@ -139,20 +145,50 @@ void changePrices(double cPrices[], string cTypes[]) {
 	cout << "8) Return." << endl << "~> ";
 	cin >> choice;
 
-	// To catch anyone who would input something not of the available options.
-	if ((choice >= 1) && (choice >= 8)) {
-		cout << cPrices[choice - 1] << "~> ";
-		cin >> cPrices[choice - 1];
-	}else{
-		cout << "Your input is invalid, try again";
-		cinFlush();
-		pause();
+	switch (choice){
+	case 1:
+		cout << cPrices[choice-1] << " ~> ";
+		cin >> cPrices[choice-1];
 		goto start;
-	}
 
-	if (choice == 8) {
+	case 2:
+		cout << cPrices[choice - 1] << " ~> ";
+		cin >> cPrices[choice - 1];
+		goto start;
+
+	case 3:
+		cout << cPrices[choice - 1] << " ~> ";
+		cin >> cPrices[choice - 1];
+		goto start;
+
+	case 4:
+		cout << cPrices[choice - 1] << " ~> ";
+		cin >> cPrices[choice - 1];
+		goto start;
+
+	case 5:
+		cout << cPrices[choice - 1] << " ~> ";
+		cin >> cPrices[choice - 1];
+		goto start;
+
+	case 6:
+		cout << cPrices[choice - 1] << " ~> ";
+		cin >> cPrices[choice - 1];
+		goto start;
+
+	case 7:
+		cout << cPrices[choice - 1] << " ~> ";
+		cin >> cPrices[choice - 1];
+		goto start;
+
+	case 8:
 		cls();
 		return;
+
+	default:
+		cout << "Your input is invalid, try again";
+		pause();
+		goto start;
 	}
 }
 
@@ -163,6 +199,7 @@ char allow;
 start:
 cls();
 cout << "Which coin type would you like to Allow/Disallow?" << endl;
+// cout << (i + 1) << ") " << arrVal[i] << " BAM, it is set to: " << arrAllow[i] << endl;
 
 for (short i = 0; i < 7; i++) {
 	if (arrAllow[i] == true) {
@@ -176,7 +213,7 @@ cout << "8) Return." << endl << "~> "; // If the user made a mistake and wanted 
 cin >> choice;
 
 // Check so that user isnt able to input an invalid value.
-if (!(choice >= 1) && !(choice <= 8)) {
+if (!(choice >= 1) || !(choice <= 8)) {
 	cout << "Your input is invalid, try again";
 	cinFlush();
 	pause();
