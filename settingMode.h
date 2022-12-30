@@ -1,6 +1,7 @@
-#pragma once
+﻿#pragma once
 
 #include <iostream>
+#include <string>
 #include "qualityOfLife.h"
 
 // These are just there to make life easier.
@@ -11,22 +12,22 @@ using std::string;
 
 /*
 Note to self : 
-* - Fix the true false stuff. // Done
-* - Remove switch case statements.
-* - Create a func that can change the types(names) of coffee.
+* - Fix the true false stuff. // Done.
+* - Remove switch case statements. // Done.
+* - Create a func that can change the types(names) of coffee. // Done.
 * - Put comments on everything.
+* - Create a func for sound.
 */
 
 /*
-int coffeeCups[5] = { 3,3,3,3,3 }; //Number of each coffee
-double coffeePrices[5] = { 2,2,3.5,3,1.5 }; //Prices of coffees
-int CoffeePosition; //Index of chosen coffee
-double Change; //Change that will be given back
-long double coinsValue[7] = { 0.05,0.1,0.2,0.5,1,2,5 }; //Value of coins
-int coinsAmount[7] = {3,3,3,3,3,3,3}; //Amount of coins
-bool coinsAllowed[7] = {true, true, true, true, true, true, true}; //Acceptable coins
-system ("cls");
-return; if ya wanna exit a void func.
+* string coffeeNames[5] = { "Espresso", "Cappucino", "Hot Chocolate", "Melange", "Americano"};
+* int coffeeCups[5] = { 3,3,3,3,3 };            //Number of each coffee
+* double coffeePrices[5] = { 2,2,3.5,3,1.5 };   //Prices of coffees
+* 
+* //COIN VARIABLES
+* const long double coinsValue[7] = { 0.05,0.1,0.2,0.5,1,2,5 };        //Value of coins
+* int coinsAmount[7] = {3,3,3,3,3,3,3};                                //Amount of coins
+* bool coinsAllowed[7] = {true, true, true, true, true, true, true};   //Acceptable coins
 */
 
 void coffeeInvent(int cAmnt[], string cTypes[]) {
@@ -90,53 +91,6 @@ void coinInvent(int coinAmnt[], const long double arrVal[]) {
 		cin >> temp;
 		goto start;
 	}
-
-	/*switch (choice) {
-	case 1:
-		cout << coinAmnt[choice-1] << " ~> ";
-		cin >> coinAmnt[choice-1];
-		goto start;
-
-	case 2:
-		cout << coinAmnt[choice - 1] << " ~> ";
-		cin >> coinAmnt[choice - 1];
-		goto start;
-
-	case 3:
-		cout << coinAmnt[choice - 1] << " ~> ";
-		cin >> coinAmnt[choice - 1];
-		goto start;
-
-	case 4:
-		cout << coinAmnt[choice - 1] << " ~> ";
-		cin >> coinAmnt[choice - 1];
-		goto start;
-
-	case 5:
-		cout << coinAmnt[choice - 1] << " ~> ";
-		cin >> coinAmnt[choice - 1];
-		goto start;
-
-	case 6:
-		cout << coinAmnt[choice - 1] << " ~> ";
-		cin >> coinAmnt[choice - 1];
-		goto start;
-
-	case 7:
-		cout << coinAmnt[choice - 1] << " ~> ";
-		cin >> coinAmnt[choice - 1];
-		goto start;
-
-	case 8:
-		cls();
-		return;
-
-
-	default:
-		cout << "Your input is invalid, try again";
-		pause();
-		goto start;
-	}*/
 }
 
 void changePrices(double cPrices[], string cTypes[]) {
@@ -157,7 +111,7 @@ void changePrices(double cPrices[], string cTypes[]) {
 		return;
 	}
 
-	if ((choice >= 1) && (choice <= 8)) {
+	if ((choice >= 1) && (choice <= 7)) {
 		cout << cPrices[choice - 1] << "~> ";
 		cin >> temp;
 		if (!isDouble(temp)) {
@@ -229,13 +183,46 @@ else if(arrAllow[(choice - 1)] == false){
 goto start;
 }
 
+void coffeeName(string cTypes[]) {
+	short choice;
+
+	start:
+	cls();
+
+	cout << "Which coffee name would you like to modify?" << endl;
+
+	for (short i = 0; i < 5; i++) {
+		cout << (i + 1) << ") " << cTypes[i] << "." << endl;
+	}
+	cout << "6) Return." << endl;
+	cin >> choice;
+
+	// discard remaining characters in the input stream
+	cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	/*
+	*	This is because otherwise the function would automatically input a "." into the array...
+	*	TYSM Şukru!
+	*/
+
+	if (choice == 6) {
+		cls();
+		return;
+	}
+
+	if ((choice >= 1) && (choice <= 5)) {
+		cout << cTypes[choice - 1] << " ~> ";
+		getline(cin, cTypes[choice - 1]);
+	}
+	goto start;
+}
+
 void settingModeMenu(const long double arrVal[], double cPrices[], string cTypes[], int coinAmnt[], int cAmnt[], bool arrAllow[]) {
 	short choice;
 
 start:
 	cls();
 	cout << "Which menu would you like to access?" << endl;
-	cout << "OPTIONS:\n1) Available coffee\n2) Stored coins\n3) Change prices\n4) Change Allowed coins\n5) Return." << "\n~> ";
+	cout << "OPTIONS:\n1) Available coffee.\n2) Stored coins.\n3) Change prices.\n4) Change Allowed coins.\n5) Change coffee names.\n6) Return." << "\n~> ";
 	cin >> choice;
 
 	switch (choice) {
@@ -256,13 +243,17 @@ start:
 		break;
 
 	case 5:
+		coffeeName(cTypes);
+		break;
+
+	case 6:
 		cls();
 		return;
 
 	default:
 		cout << "Your input is invalid, try again";
 		pause();
-		goto start;
+		break;
 	}
 	goto start;
 }
