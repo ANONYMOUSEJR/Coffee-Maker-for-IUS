@@ -6,7 +6,8 @@
 // Sound used: [https://www.youtube.com/watch?v=FBVrgBNzC8k]. (For beepBeep)
 //			   [https://www.youtube.com/watch?v=b1Kd3Pa3sHM]. (For pour and money)
 //			   [https://www.youtube.com/watch?v=qTX1lI8COuQ]. (For loading)
-//			   [https://youtu.be/watch?v=FwVRkhy5G04]. (For error)
+//			   [https://youtu.be/watch?v=FwVRkhy5G04].        (For error)
+//			   [https://www.youtube.com/watch?v=92VhExh27xQ]. (For egg)
 
 void beepBeep() {
 	PlaySound(L"beepbeep.wav", NULL, SND_ASYNC);
@@ -37,4 +38,9 @@ void loading() {
 
 void error() {
 	PlaySound(L"error.wav", NULL, SND_ASYNC);
+}
+
+void egg() {
+
+	PlaySound(L"coffeeislove.wav", NULL, SND_ASYNC);
 }

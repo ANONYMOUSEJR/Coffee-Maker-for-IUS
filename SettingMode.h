@@ -6,6 +6,8 @@
 #include "audio.h"
 #include "qualityOfLife.h"
 
+#undef max
+
 // These are just there to make life easier.
 using namespace std;
 
@@ -211,7 +213,7 @@ void coffeeName(string cTypes[]) {
 	beepBeep();
 
 	// discard remaining characters in the input stream
-	cinFlush();
+	cin.ignore(numeric_limits<streamsize>::max(), '\n');
 	/*
 	*	This is because otherwise the function would automatically input a "." into the array...
 	*	TYSM Şukru!

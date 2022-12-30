@@ -2,6 +2,10 @@
 
 #include<iostream>
 #include<limits>
+#include"audio.h"
+
+#undef max 
+// This somehow fixes an error code that could come from "max()" in the cin.ignore function, here's where i got it from [https://stackoverflow.com/a/21959303].
 
 using namespace std;
 
@@ -55,13 +59,17 @@ bool isDouble(double num) {
 
 // Self explanitory...
 void easterEgg() {
-	string Speech = "The coffee flowed from the machine in a smooth, steady stream, each droplet glistening in the light.\nIt was like a dance, a beautiful, mesmerizing performance that drew the eyeand captured the imagination.\nAs it made its way into the cup, the coffee seemed to come alive, filling the air with its rich, aromatic scent.\nIt was a fragrance that spoke of comfortand warmth, of cozy nights by the fireand quiet moments of reflection.\n";
+	cls();
+	egg();
+	string Speech = "The coffee flowed from the machine in a smooth, steady stream, each droplet glistening in the light.\nIt was like a dance, a beautiful, mesmerizing performance that drew the eye and captured the imagination.\nAs it made its way into the cup, the coffee seemed to come alive, filling the air with its rich, aromatic scent.\nIt was a fragrance that spoke of comfort and warmth, of cozy nights by the fire and quiet moments of reflection.\n";
 	int x = 0;
 	while (Speech[x] != '\0') {
 		cout << Speech[x];
 		sleep_for(milliseconds(50));
 		x++;
 	}
+	pause();
+	pause();
 	cls();
 }
 

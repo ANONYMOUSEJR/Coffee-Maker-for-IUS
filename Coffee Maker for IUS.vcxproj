@@ -138,6 +138,7 @@
   </ItemGroup>
   <ItemGroup>
     <Media Include="beepbeep.wav" />
+    <Media Include="coffeeislove.wav" />
     <Media Include="coffeepour.wav" />
     <Media Include="coin.wav" />
     <Media Include="error.wav" />
