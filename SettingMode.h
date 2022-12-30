@@ -2,13 +2,12 @@
 
 #include <iostream>
 #include <string>
+#include <limits>
+#include "audio.h"
 #include "qualityOfLife.h"
 
 // These are just there to make life easier.
-using std::cin;
-using std::cout;
-using std::endl;
-using std::string;
+using namespace std;
 
 /*
 Note to self : 
@@ -16,18 +15,7 @@ Note to self :
 * - Remove switch case statements. // Done.
 * - Create a func that can change the types(names) of coffee. // Done.
 * - Put comments on everything.
-* - Create a func for sound.
-*/
-
-/*
-* string coffeeNames[5] = { "Espresso", "Cappucino", "Hot Chocolate", "Melange", "Americano"};
-* int coffeeCups[5] = { 3,3,3,3,3 };            //Number of each coffee
-* double coffeePrices[5] = { 2,2,3.5,3,1.5 };   //Prices of coffees
-* 
-* //COIN VARIABLES
-* const long double coinsValue[7] = { 0.05,0.1,0.2,0.5,1,2,5 };        //Value of coins
-* int coinsAmount[7] = {3,3,3,3,3,3,3};                                //Amount of coins
-* bool coinsAllowed[7] = {true, true, true, true, true, true, true};   //Acceptable coins
+* - Create a func for sound. // Done.
 */
 
 void coffeeInvent(int cAmnt[], string cTypes[]) {
@@ -42,6 +30,7 @@ void coffeeInvent(int cAmnt[], string cTypes[]) {
 	}
 	cout << "6) Return." << endl << "~> ";
 	cin >> choice;
+	beepBeep();
 
 	if (choice == 6) {
 		cls();
@@ -51,8 +40,10 @@ void coffeeInvent(int cAmnt[], string cTypes[]) {
 	if ((choice >= 1) && (choice <= 5)) {
 		cout << cAmnt[choice - 1] << " ~> ";
 			cin >> temp;
+			beepBeep();
 			if (!isPos(temp)) { 
 				cout << "Your input is invalid, try again";
+				error();
 				pause();
 				goto start; 
 			}
@@ -61,6 +52,7 @@ void coffeeInvent(int cAmnt[], string cTypes[]) {
 	}
 	else{
 		cout << "Your input is invalid, try again";
+		error();
 		cinFlush();
 		pause();
 		goto start;
@@ -80,6 +72,7 @@ void coinInvent(int coinAmnt[], const long double arrVal[]) {
 	}
 	cout << "8) Return." << endl << "~> ";
 	cin >> choice;
+	beepBeep();
 
 	if (choice == 8) {
 		cls();
@@ -89,6 +82,7 @@ void coinInvent(int coinAmnt[], const long double arrVal[]) {
 	if ((choice >= 1) && (choice <= 7)) {
 		cout << coinAmnt[choice - 1] << " ~> ";
 		cin >> temp;
+		beepBeep();
 		goto start;
 	}
 }
@@ -105,6 +99,7 @@ void changePrices(double cPrices[], string cTypes[]) {
 	}
 	cout << "8) Return." << endl << "~> ";
 	cin >> choice;
+	beepBeep();
 
 	if (choice == 8) {
 		cls();
@@ -114,8 +109,10 @@ void changePrices(double cPrices[], string cTypes[]) {
 	if ((choice >= 1) && (choice <= 7)) {
 		cout << cPrices[choice - 1] << "~> ";
 		cin >> temp;
+		beepBeep();
 		if (!isDouble(temp)) {
 			cout << "Your input is invalid, try again";
+			error();
 			cinFlush();
 			pause();
 			goto start;
@@ -125,6 +122,7 @@ void changePrices(double cPrices[], string cTypes[]) {
 		}
 	}else{
 		cout << "Your input is invalid, try again";
+		error();
 		cinFlush();
 		pause();
 		goto start;
@@ -150,10 +148,12 @@ for (short i = 0; i < 7; i++) {
 }
 cout << "8) Return." << endl << "~> "; // If the user made a mistake and wanted to go back.
 cin >> choice;
+beepBeep();
 
 // Check so that user isnt able to input an invalid value.
 if (!(choice >= 1) && !(choice <= 8)) {
 	cout << "Your input is invalid, try again";
+	error();
 	cinFlush();
 	pause();
 	goto start;
@@ -169,6 +169,8 @@ cout << "Set to true(t) or false(f): " << endl;
 if (arrAllow[(choice - 1)] == true) {
 	cout << arrVal[(choice - 1)] << " is allowed, set to: " << endl << "~> ";
 	cin >> allow;
+	beepBeep();
+	
 	if (allow != 't') {
 		arrAllow[(choice - 1)] = false;
 	}
@@ -176,6 +178,7 @@ if (arrAllow[(choice - 1)] == true) {
 else if(arrAllow[(choice - 1)] == false){
 	cout << arrVal[(choice - 1)] << " is not allowed, set to: " << endl << "~> ";
 	cin >> allow;
+	beepBeep();
 	if (allow != 'f') {
 		arrAllow[(choice - 1)] = true;
 	}
@@ -196,9 +199,10 @@ void coffeeName(string cTypes[]) {
 	}
 	cout << "6) Return." << endl;
 	cin >> choice;
+	beepBeep();
 
 	// discard remaining characters in the input stream
-	cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+	cinFlush();
 	/*
 	*	This is because otherwise the function would automatically input a "." into the array...
 	*	TYSM Şukru!
@@ -212,18 +216,27 @@ void coffeeName(string cTypes[]) {
 	if ((choice >= 1) && (choice <= 5)) {
 		cout << cTypes[choice - 1] << " ~> ";
 		getline(cin, cTypes[choice - 1]);
+		beepBeep();
+	}
+	else {
+		cout << "Your input is invalid, try again";
+		error();
+		pause();
 	}
 	goto start;
 }
 
 void settingModeMenu(const long double arrVal[], double cPrices[], string cTypes[], int coinAmnt[], int cAmnt[], bool arrAllow[]) {
 	short choice;
+	beepBeep();
 
 start:
 	cls();
 	cout << "Which menu would you like to access?" << endl;
 	cout << "OPTIONS:\n1) Available coffee.\n2) Stored coins.\n3) Change prices.\n4) Change Allowed coins.\n5) Change coffee names.\n6) Return." << "\n~> ";
 	cin >> choice;
+	beepBeep();
+
 
 	switch (choice) {
 	case 1:
@@ -252,6 +265,7 @@ start:
 
 	default:
 		cout << "Your input is invalid, try again";
+		error();
 		pause();
 		break;
 	}
