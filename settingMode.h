@@ -12,7 +12,7 @@ using std::string;
 /*
 Note to self : 
 * - Fix the true false stuff.
-*  - Remove switch case statements.
+* - Remove switch case statements.
 */
 
 /*
@@ -200,157 +200,56 @@ char allow;
 start:
 cls();
 cout << "Which coin type would you like to Allow/Disallow?" << endl;
+// cout << (i + 1) << ") " << arrVal[i] << " BAM, it is set to: " << arrAllow[i] << endl;
 
 for (short i = 0; i < 7; i++) {
-	cout << (i + 1) << ") " << arrVal[i] << " BAM, it is set to: " << arrAllow[i] << endl;
+	if (arrAllow[i] == true) {
+		cout << (i + 1) << ") " << arrVal[i] << " BAM, it is set to: TRUE" << endl;
+	}
+	else if (arrAllow[i] == false){
+		cout << (i + 1) << ") " << arrVal[i] << " BAM, it is set to: FALSE" << endl;
+	}
 }
 cout << "8) Return." << endl << "~> "; // If the user made a mistake and wanted to go back.
 cin >> choice;
 
+// Check so that user isnt able to input an invalid value.
+if (!(choice >= 1) || !(choice <= 8)) {
+	cout << "Your input is invalid, try again";
+	cinFlush();
+	pause();
+	goto start;
+}
+
+if (choice == 8) {
+	cls();
+	return;
+}
+
 cout << "Set to true(t) or false(f): " << endl;
 
-switch (choice){
-		case 1:
-			if (arrAllow[(choice - 1)]) {
-				cout << arrVal[(choice - 1)] << " is allowed, set to: " << endl << "~> ";
-				cin >> allow;
-				if (arrAllow[(choice - 1)] != allow) {
-					arrAllow[(choice - 1)] = false;
-				}
-			}
-			else{
-				cout << arrVal[(choice - 1)] << " is not allowed, set to: " << endl << "~> ";
-				cin >> allow;
-				if (arrAllow[(choice - 1)] != allow) {
-					arrAllow[(choice - 1)] = true;
-				}
-			}
-			goto start;
-			break;
-
-		case 2:
-			if (arrAllow[(choice - 1)]) {
-				cout << arrVal[(choice - 1)] << " is allowed, set to: " << endl << "~> ";
-				cin >> allow;
-				if (arrAllow[(choice - 1)] != allow) {
-					arrAllow[(choice - 1)] = false;
-				}
-			}
-			else {
-				cout << arrVal[(choice - 1)] << " is not allowed, set to: " << endl << "~> ";
-				cin >> allow;
-				if (arrAllow[(choice - 1)] != allow) {
-					arrAllow[(choice - 1)] = true;
-				}
-			}
-			goto start;
-			break;
-
-		case 3:
-			if (arrAllow[(choice - 1)]) {
-				cout << arrVal[(choice - 1)] << " is allowed, set to: " << endl << "~> ";
-				cin >> allow;
-				if (arrAllow[(choice - 1)] != allow) {
-					arrAllow[(choice - 1)] = false;
-				}
-			}
-			else {
-				cout << arrVal[(choice - 1)] << " is not allowed, set to: " << endl << "~> ";
-				cin >> allow;
-				if (arrAllow[(choice - 1)] != allow) {
-					arrAllow[(choice - 1)] = true;
-				}
-			}
-			goto start;
-			break;
-
-		case 4:
-			if (arrAllow[(choice - 1)]) {
-				cout << arrVal[(choice - 1)] << " is allowed, set to: " << endl << "~> ";
-				cin >> allow;
-				if (arrAllow[(choice - 1)] != allow) {
-					arrAllow[(choice - 1)] = false;
-				}
-			}
-			else {
-				cout << arrVal[(choice - 1)] << " is not allowed, set to: " << endl << "~> ";
-				cin >> allow;
-				if (arrAllow[(choice - 1)] != allow) {
-					arrAllow[(choice - 1)] = true;
-				}
-			}
-			goto start;
-			break;
-
-		case 5:
-			if (arrAllow[(choice - 1)]) {
-				cout << arrVal[(choice - 1)] << " is allowed, set to: " << endl << "~> ";
-				cin >> allow;
-				if (arrAllow[(choice - 1)] != allow) {
-					arrAllow[(choice - 1)] = false;
-				}
-			}
-			else {
-				cout << arrVal[(choice - 1)] << " is not allowed, set to: " << endl << "~> ";
-				cin >> allow;
-				if (arrAllow[(choice - 1)] != allow) {
-					arrAllow[(choice - 1)] = true;
-				}
-			}
-			goto start;
-			break;
-
-		case 6:
-			if (arrAllow[(choice - 1)]) {
-				cout << arrVal[(choice - 1)] << " is allowed, set to: " << endl << "~> ";
-				cin >> allow;
-				if (arrAllow[(choice - 1)] != allow) {
-					arrAllow[(choice - 1)] = false;
-				}
-			}
-			else {
-				cout << arrVal[(choice - 1)] << " is not allowed, set to: " << endl << "~> ";
-				cin >> allow;
-				if (arrAllow[(choice - 1)] != allow) {
-					arrAllow[(choice - 1)] = true;
-				}
-			}
-			goto start;
-			break;
-
-		case 7:
-			if (arrAllow[(choice - 1)]) {
-				cout << arrVal[(choice - 1)] << " is allowed, set to: " << endl << "~> ";
-				cin >> allow;
-				if (arrAllow[(choice - 1)] != allow) {
-					arrAllow[(choice - 1)] = false;
-				}
-			}
-			else {
-				cout << arrVal[(choice - 1)] << " is not allowed, set to: " << endl << "~> ";
-				cin >> allow;
-				if (arrAllow[(choice - 1)] != allow) {
-					arrAllow[(choice - 1)] = true;
-				}
-			}
-			goto start;
-			break;
-
-		case 8:
-			cls();
-			return;
-
-		default:
-			cout << "Your input is invalid, try again";
-			pause();
-			goto start;
-		}
+if (arrAllow[(choice - 1)] == true) {
+	cout << arrVal[(choice - 1)] << " is allowed, set to: " << endl << "~> ";
+	cin >> allow;
+	if (allow != 't') {
+		arrAllow[(choice - 1)] = false;
+	}
+}
+else if(arrAllow[(choice - 1)] == false){
+	cout << arrVal[(choice - 1)] << " is not allowed, set to: " << endl << "~> ";
+	cin >> allow;
+	if (allow != 'f') {
+		arrAllow[(choice - 1)] = true;
+	}
+}
+goto start;
 }
 
 void settingModeMenu(const long double arrVal[], double cPrices[], string cTypes[], int coinAmnt[], int cAmnt[], bool arrAllow[]) {
 	short choice;
 
 start:
+	cls();
 	cout << "Which menu would you like to access?" << endl;
 	cout << "OPTIONS:\n1) Available coffee\n2) Stored coins\n3) Change prices\n4) Change Allowed coins\n5) Return." << "\n~> ";
 	cin >> choice;
