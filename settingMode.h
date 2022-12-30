@@ -83,6 +83,15 @@ void coinInvent(int coinAmnt[], const long double arrVal[]) {
 		cout << coinAmnt[choice - 1] << " ~> ";
 		cin >> temp;
 		beepBeep();
+
+		if (isPos(temp)) {
+			coinAmnt[choice - 1] = temp;
+		}
+		else{
+			cout << "Your input is invalid, try again";
+			error();
+			pause();
+		}
 		goto start;
 	}
 }
