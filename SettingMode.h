@@ -11,8 +11,10 @@ using std::string;
 
 /*
 Note to self : 
-* - Fix the true false stuff.
+* - Fix the true false stuff. // Done
 * - Remove switch case statements.
+* - Create a func that can change the types(names) of coffee.
+* - Put comments on everything.
 */
 
 /*
@@ -39,17 +41,22 @@ void coffeeInvent(int cAmnt[], string cTypes[]) {
 	}
 	cout << "6) Return." << endl << "~> ";
 	cin >> choice;
+
+	if (choice == 6) {
+		cls();
+		return;
+	}
 	
 	if ((choice >= 1) && (choice <= 5)) {
 		cout << cAmnt[choice - 1] << " ~> ";
 			cin >> temp;
-			if (!isPos(temp)) { goto start; }
-			else { cAmnt[choice - 1] = temp; } // Checks if the Users input is pos, if it is it goes aheada with the change.
+			if (!isPos(temp)) { 
+				cout << "Your input is invalid, try again";
+				pause();
+				goto start; 
+			}
+			else { cAmnt[choice - 1] = temp; } // Checks if the Users input is pos, if it is it goes ahead with the change.
 		goto start;
-	}
-	else if (choice == 6) {
-		cls();
-		return;
 	}
 	else{
 		cout << "Your input is invalid, try again";
@@ -73,62 +80,21 @@ void coinInvent(int coinAmnt[], const long double arrVal[]) {
 	cout << "8) Return." << endl << "~> ";
 	cin >> choice;
 
-	if ((choice >= 1) || (choice <= 7)) {
-		cout << coinAmnt[choice - 1] << " ~> ";
-		cin >> temp;
-		goto start;
-	}
-
-	switch (choice){
-	case 1:
-		cout << coinAmnt[choice-1] << " ~> ";
-		cin >> coinAmnt[choice-1];
-		goto start;
-
-	case 2:
-		cout << coinAmnt[choice - 1] << " ~> ";
-		cin >> coinAmnt[choice - 1];
-		goto start;
-
-	case 3:
-		cout << coinAmnt[choice - 1] << " ~> ";
-		cin >> coinAmnt[choice - 1];
-		goto start;
-
-	case 4:
-		cout << coinAmnt[choice - 1] << " ~> ";
-		cin >> coinAmnt[choice - 1];
-		goto start;
-
-	case 5:
-		cout << coinAmnt[choice - 1] << " ~> ";
-		cin >> coinAmnt[choice - 1];
-		goto start;
-
-	case 6:
-		cout << coinAmnt[choice - 1] << " ~> ";
-		cin >> coinAmnt[choice - 1];
-		goto start;
-
-	case 7:
-		cout << coinAmnt[choice - 1] << " ~> ";
-		cin >> coinAmnt[choice - 1];
-		goto start;
-
-	case 8:
+	if (choice == 8) {
 		cls();
 		return;
+	}
 
-
-	default:
-		cout << "Your input is invalid, try again";
-		pause();
+	if ((choice >= 1) && (choice <= 7)) {
+		cout << coinAmnt[choice - 1] << " ~> ";
+		cin >> temp;
 		goto start;
 	}
 }
 
 void changePrices(double cPrices[], string cTypes[]) {
 	short choice;
+	double temp;
 
 	start:
 	cls();
@@ -139,21 +105,30 @@ void changePrices(double cPrices[], string cTypes[]) {
 	cout << "8) Return." << endl << "~> ";
 	cin >> choice;
 
-	// To catch anyone who would input something not of the available options.
-	if ((choice >= 1) && (choice >= 8)) {
+	if (choice == 8) {
+		cls();
+		return;
+	}
+
+	if ((choice >= 1) && (choice <= 8)) {
 		cout << cPrices[choice - 1] << "~> ";
-		cin >> cPrices[choice - 1];
+		cin >> temp;
+		if (!isDouble(temp)) {
+			cout << "Your input is invalid, try again";
+			cinFlush();
+			pause();
+			goto start;
+		}
+		else{
+			cPrices[choice - 1] = temp;
+		}
 	}else{
 		cout << "Your input is invalid, try again";
 		cinFlush();
 		pause();
 		goto start;
 	}
-
-	if (choice == 8) {
-		cls();
-		return;
-	}
+	goto start;
 }
 
 void coinRule(bool arrAllow[], const long double arrVal[]) {
