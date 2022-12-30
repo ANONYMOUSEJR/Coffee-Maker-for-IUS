@@ -33,7 +33,7 @@ void cls() {
 
 // Checks if user input is Positive...
 bool isPos(int num) {
-	if (num > 0) {
+	if (num >= 0) {
 		return true;
 	}
 	else {
