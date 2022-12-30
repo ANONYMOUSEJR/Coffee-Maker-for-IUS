@@ -1,6 +1,7 @@
 #pragma once
 
 #include<iostream>
+#include<limits>
 
 using namespace std;
 
@@ -39,6 +40,20 @@ bool isPos(int num) {
 		return false;
 	}
 }
+
+// Checks if user input is a double... (Using the limits library, and knoweledge from the internet)
+bool isDouble(double num) {
+	if (cin.fail()) {
+		// input could not be interpreted as a double
+		return false;
+	}
+	else {
+		// input is a valid double
+		return true;
+	}
+}
+
+// Self explanitory...
 void easterEgg() {
 	string Speech = "The coffee flowed from the machine in a smooth, steady stream, each droplet glistening in the light.\nIt was like a dance, a beautiful, mesmerizing performance that drew the eyeand captured the imagination.\nAs it made its way into the cup, the coffee seemed to come alive, filling the air with its rich, aromatic scent.\nIt was a fragrance that spoke of comfortand warmth, of cozy nights by the fireand quiet moments of reflection.\n";
 	int x = 0;
