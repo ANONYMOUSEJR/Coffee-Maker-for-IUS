@@ -14,7 +14,7 @@ using std::chrono::milliseconds;
 
 // Just to prettyfy stuff...
 void Boundary() {
-	cout << "*****************************************" << endl;
+	cout << "***********************************************************" << endl;
 }
 
 // Creates the three dot loading thing...
@@ -38,6 +38,16 @@ bool isPos(int num) {
 	else {
 		return false;
 	}
+}
+void easterEgg() {
+	string Speech = "The coffee flowed from the machine in a smooth, steady stream, each droplet glistening in the light.\nIt was like a dance, a beautiful, mesmerizing performance that drew the eyeand captured the imagination.\nAs it made its way into the cup, the coffee seemed to come alive, filling the air with its rich, aromatic scent.\nIt was a fragrance that spoke of comfortand warmth, of cozy nights by the fireand quiet moments of reflection.\n";
+	int x = 0;
+	while (Speech[x] != '\0') {
+		cout << Speech[x];
+		sleep_for(milliseconds(50));
+		x++;
+	}
+	cls();
 }
 
 // Clears out a pottentially corrupted cin.
