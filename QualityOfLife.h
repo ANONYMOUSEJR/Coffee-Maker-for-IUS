@@ -5,7 +5,7 @@
 #include"audio.h"
 
 #undef max 
-// This somehow fixes an error code that could come from "max()" in the cin.ignore function, here's where i got it from [https://stackoverflow.com/a/21959303].
+// This somehow fixes an error code that could come from "max()" in the cin.ignore function, here's where i got it from: [https://stackoverflow.com/a/21959303].
 
 using namespace std;
 
@@ -75,7 +75,7 @@ void easterEgg() {
 	system("color 7");
 }
 
-// Clears out a pottentially corrupted cin.
+// Clears out a potentially corrupted cin.
 void cinFlush() {
 	cin.clear();
 	cin.ignore(numeric_limits<streamsize>::max(), '\n');

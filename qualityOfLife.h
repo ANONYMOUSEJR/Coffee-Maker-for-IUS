@@ -75,7 +75,7 @@ void easterEgg() {
 	system("color 7");
 }
 
-// Clears out a pottentially corrupted cin.
+// Clears out a potentially corrupted cin.
 void cinFlush() {
 	cin.clear();
 	cin.ignore(numeric_limits<streamsize>::max(), '\n');
