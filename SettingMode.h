@@ -239,6 +239,7 @@ void coffeeName(string cTypes[]) {
 
 void settingModeMenu(const long double arrVal[], double cPrices[], string cTypes[], int coinAmnt[], int cAmnt[], bool arrAllow[]) {
 	short choice;
+	system("color a");
 	beepBeep();
 
 start:
@@ -272,6 +273,8 @@ start:
 
 	case 6:
 		cls();
+		system("color 7");
+		beepBeep();
 		return;
 
 	default:
