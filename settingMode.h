@@ -239,7 +239,7 @@ void coffeeName(string cTypes[]) {
 
 void settingModeMenu(const long double arrVal[], double cPrices[], string cTypes[], int coinAmnt[], int cAmnt[], bool arrAllow[]) {
 	short choice;
-	system("color a");
+	system("color e");
 	beepBeep();
 
 start:

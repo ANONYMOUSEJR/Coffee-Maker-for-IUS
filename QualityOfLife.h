@@ -59,6 +59,7 @@ bool isDouble(double num) {
 
 // Self explanitory...
 void easterEgg() {
+	system("color e");
 	cls();
 	egg();
 	string Speech = "The coffee flowed from the machine in a smooth, steady stream, each droplet glistening in the light.\nIt was like a dance, a beautiful, mesmerizing performance that drew the eye and captured the imagination.\nAs it made its way into the cup, the coffee seemed to come alive, filling the air with its rich, aromatic scent.\nIt was a fragrance that spoke of comfort and warmth, of cozy nights by the fire and quiet moments of reflection.\n";
@@ -71,6 +72,7 @@ void easterEgg() {
 	pause();
 	pause();
 	cls();
+	system("color 7");
 }
 
 // Clears out a pottentially corrupted cin.
