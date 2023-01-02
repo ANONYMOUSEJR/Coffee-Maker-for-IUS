@@ -216,7 +216,7 @@ void coffeeName(string cTypes[]) {
 	for (short i = 0; i < 5; i++) {
 		cout << (i + 1) << ") " << cTypes[i] << "." << endl;
 	}
-	cout << "6) Return." << endl;
+	cout << "6) Return." << endl << "~> ";
 	cin >> choice;
 	beepBeep();
 
@@ -245,6 +245,48 @@ void coffeeName(string cTypes[]) {
 	goto start;
 }
 
+// Shows the status and settings of all the functions.
+void stat(const long double arrVal[], double cPrices[], string cTypes[], int coinAmnt[], int cAmnt[], bool arrAllow[]) {
+	short choice;
+	start:
+	cls();
+
+	cout << "Coffee details:" << endl;
+	for (short i = 0; i < 5; i++) {
+		cout << (i + 1) << ") " << cTypes[i] << ": " << cPrices[i] << " KM. 	Amount left:" << cAmnt[i] << endl;
+	}
+
+	cout << endl;
+	boundary();
+	cout << endl;
+
+	cout << "Monetary details:" << endl;
+
+	for (short i = 0; i < 7; i++) {
+		if (arrAllow[i] == true) {
+			cout << (i + 1) << ") " << arrVal[i] << " BAM, it is set to: TRUE.		Amount Left: " << coinAmnt[i] << endl;
+		}
+		else if (arrAllow[i] == false) {
+			cout << (i + 1) << ") " << arrVal[i] << " BAM, it is set to: FALSE.		Amount Left: " << coinAmnt[i] << endl;
+		}
+	}
+	cout << endl << endl << "Input 0 to Return." << endl << "~> ";
+	cin >> choice;
+
+	if (choice == 0){
+		beepBeep();
+		cls();
+		return;
+	}
+	else {
+		cout << "Your input is invalid, try again";
+		error();
+		cinFlush();
+		pause();
+		goto start;
+	}
+}
+
 // Gives the user a menu of the above functions to choose from.
 void settingModeMenu(const long double arrVal[], double cPrices[], string cTypes[], int coinAmnt[], int cAmnt[], bool arrAllow[]) {
 	short choice;
@@ -254,7 +296,7 @@ void settingModeMenu(const long double arrVal[], double cPrices[], string cTypes
 start:
 	cls();
 	cout << "Which menu would you like to access?" << endl;
-	cout << "OPTIONS:\n1) Available coffee.\n2) Stored coins.\n3) Change prices.\n4) Change Allowed coins.\n5) Change coffee names.\n6) Return." << "\n~> ";
+	cout << "OPTIONS:\n1) Stored coffee.\n2) Stored coins.\n3) Change prices.\n4) Change Allowed coins.\n5) Change coffee names.\n6) Stats.\n7) Return." << "\n~> ";
 	cin >> choice;
 	beepBeep();
 
@@ -281,8 +323,12 @@ start:
 		break;
 
 	case 6:
+		stat(arrVal, cPrices, cTypes, coinAmnt, cAmnt, arrAllow);
+		break;
+
+	case 7:
 		cls();
-		system("color 7");
+		system("color f");
 		beepBeep();
 		return;
 

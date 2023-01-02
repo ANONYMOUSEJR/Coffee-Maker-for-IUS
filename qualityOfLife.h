@@ -18,8 +18,8 @@ using std::chrono::milliseconds;
 // Quality Of Life Functions:
 
 // Just to prettify stuff...
-void Boundary() {
-	cout << "***********************************************************" << endl;
+void boundary() {
+	cout << "*****************************************************************" << endl;
 }
 
 // Creates the three dot loading thing...

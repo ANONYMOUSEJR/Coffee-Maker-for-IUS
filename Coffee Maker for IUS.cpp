@@ -21,7 +21,7 @@ using std::string;
 
 int main()
 {
-  
+
     //FUNCTIONAL VARIABLES
     char setModeOrUserMode;   //Which mode to use
     char endOfTheDay;         //Finnish the machine
@@ -41,6 +41,7 @@ int main()
     do {
         //MODE MENU
         oasis1:
+        system("color f");
         cls();
         cout << "Do you wish the use the setting mode or operation mode <s/o>" << endl;
         cin >> setModeOrUserMode;
