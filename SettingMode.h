@@ -92,8 +92,13 @@ void coinInvent(int coinAmnt[], const long double arrVal[]) {
 			error();
 			pause();
 		}
-		goto start;
 	}
+	else {
+		cout << "Your input is invalid, try again";
+		error();
+		pause();
+	}
+	goto start;
 }
 
 // Allows for the user to change the price of certain coffees.
@@ -107,16 +112,16 @@ start:
 	for (short i = 0; i < 5; i++) {
 		cout << (i + 1) << ") " << cTypes[i] << ": " << cPrices[i] << endl;
 	}
-	cout << "8) Return." << endl << "~> ";
+	cout << "6) Return." << endl << "~> ";
 	cin >> choice;
 	beepBeep();
 
-	if (choice == 8) {
+	if (choice == 6) {
 		cls();
 		return;
 	}
 
-	if ((choice >= 1) && (choice <= 7)) {
+	if ((choice >= 1) && (choice <= 6)) {
 		cout << cPrices[choice - 1] << "~> ";
 		cin >> temp;
 		beepBeep();
@@ -162,8 +167,34 @@ start:
 	cin >> choice;
 	beepBeep();
 
-	// Check so that user isnt able to input an invalid value.
-	if (!(choice >= 1) && !(choice <= 8)) {
+	if (choice == 8) {
+		cls();
+		return;
+	}
+
+	if ((choice >= 1) && (choice <= 8)) {
+		cout << "Set to true(t) or false(f): " << endl;
+
+		if (arrAllow[(choice - 1)] == true) {
+			cout << arrVal[(choice - 1)] << " is allowed, set to: " << endl << "~> ";
+			cin >> allow;
+			beepBeep();
+
+			if (allow != 't') {
+				arrAllow[(choice - 1)] = false;
+			}
+		}
+		else if (arrAllow[(choice - 1)] == false) {
+			cout << arrVal[(choice - 1)] << " is not allowed, set to: " << endl << "~> ";
+			cin >> allow;
+			beepBeep();
+			if (allow != 'f') {
+				arrAllow[(choice - 1)] = true;
+			}
+		}
+	}
+	else
+	{
 		cout << "Your input is invalid, try again";
 		error();
 		cinFlush();
@@ -171,30 +202,6 @@ start:
 		goto start;
 	}
 
-	if (choice == 8) {
-		cls();
-		return;
-	}
-
-	cout << "Set to true(t) or false(f): " << endl;
-
-	if (arrAllow[(choice - 1)] == true) {
-		cout << arrVal[(choice - 1)] << " is allowed, set to: " << endl << "~> ";
-		cin >> allow;
-		beepBeep();
-	
-		if (allow != 't') {
-			arrAllow[(choice - 1)] = false;
-		}
-	}
-	else if(arrAllow[(choice - 1)] == false){
-		cout << arrVal[(choice - 1)] << " is not allowed, set to: " << endl << "~> ";
-		cin >> allow;
-		beepBeep();
-		if (allow != 'f') {
-			arrAllow[(choice - 1)] = true;
-		}
-	}
 	goto start;
 }
 
@@ -214,19 +221,19 @@ start:
 	cin >> choice;
 	beepBeep();
 
-	// discard remaining characters in the input stream
-	cin.ignore(numeric_limits<streamsize>::max(), '\n');
-	/*
-	*	This is because otherwise the function would automatically input a "." into the array...
-	*	TYSM Şukru!
-	*/
-
 	if (choice == 6) {
 		cls();
 		return;
 	}
 
 	if ((choice >= 1) && (choice <= 5)) {
+		// discard remaining characters in the input stream
+		cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		/*
+		*	This is because otherwise the function would automatically input a "." into the array...
+		*	TYSM Şukru!
+		*/
+
 		cout << cTypes[choice - 1] << " ~> ";
 		getline(cin, cTypes[choice - 1]);
 		beepBeep();
