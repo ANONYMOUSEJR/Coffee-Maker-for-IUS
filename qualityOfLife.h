@@ -17,7 +17,7 @@ using std::chrono::milliseconds;
 
 // Quality Of Life Functions:
 
-// Just to prettyfy stuff...
+// Just to prettify stuff...
 void Boundary() {
 	cout << "***********************************************************" << endl;
 }
@@ -48,11 +48,11 @@ bool isPos(int num) {
 // Checks if user input is a double... (Using the limits library, and knoweledge from the internet)
 bool isDouble(double num) {
 	if (cin.fail()) {
-		// input could not be interpreted as a double
+		// Input could not be interpreted as a double
 		return false;
 	}
 	else {
-		// input is a valid double
+		// Input is a valid double
 		return true;
 	}
 }

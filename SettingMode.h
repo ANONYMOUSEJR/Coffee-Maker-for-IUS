@@ -1,4 +1,6 @@
-﻿#pragma once
+﻿// Note: This header file uses functions from QOL and audio headers,
+// for an explenation on what these functions do go to the respective header file.
+#pragma once // Uses libraries once.
 
 #include <iostream>
 #include <string>
@@ -7,8 +9,9 @@
 #include "qualityOfLife.h"
 
 #undef max
+// Check line 8 in QOL header fer an explanation to this...
 
-// These are just there to make life easier.
+// This are just there to make life easier.
 using namespace std;
 
 /*
@@ -20,6 +23,7 @@ Note to self :
 * - Create a func for sound. // Done.
 */
 
+// Allows the user to change the amount of coffees inside the machines inventory.
 void coffeeInvent(int cAmnt[], string cTypes[]) {
 	short choice;
 	int temp;
@@ -62,6 +66,7 @@ void coffeeInvent(int cAmnt[], string cTypes[]) {
 
 }
 
+// Allows the user to change the amount of coins in inventory.
 void coinInvent(int coinAmnt[], const long double arrVal[]) {
 	short choice;
 	int temp;
@@ -98,6 +103,7 @@ void coinInvent(int coinAmnt[], const long double arrVal[]) {
 	}
 }
 
+// Allows for the user to change the price of certain coffees.
 void changePrices(double cPrices[], string cTypes[]) {
 	short choice;
 	double temp;
@@ -141,6 +147,7 @@ void changePrices(double cPrices[], string cTypes[]) {
 	goto start;
 }
 
+// Allows the user to allow/disallow certain coin types.
 void coinRule(bool arrAllow[], const long double arrVal[]) {
 short choice;
 char allow;
@@ -197,6 +204,7 @@ else if(arrAllow[(choice - 1)] == false){
 goto start;
 }
 
+// Allows the user to change the names of offered coffees.
 void coffeeName(string cTypes[]) {
 	short choice;
 
@@ -237,6 +245,7 @@ void coffeeName(string cTypes[]) {
 	goto start;
 }
 
+// Gives the user a menu of the above functions to choose from.
 void settingModeMenu(const long double arrVal[], double cPrices[], string cTypes[], int coinAmnt[], int cAmnt[], bool arrAllow[]) {
 	short choice;
 	system("color e");
