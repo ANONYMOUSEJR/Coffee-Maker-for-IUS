@@ -1,9 +1,11 @@
 #pragma once
 
+// Note: for this to work you need to add all the .wav files to the project...
+
 #include<Windows.h>
 #pragma comment(lib, "winmm.lib") // This is to link this library to the project because it is needed to play a sound file...
 
-// Sound used: [https://www.youtube.com/watch?v=FBVrgBNzC8k]. (For beepBeep)
+// Sounds used: [https://www.youtube.com/watch?v=FBVrgBNzC8k]. (For beepBeep)
 //			   [https://www.youtube.com/watch?v=b1Kd3Pa3sHM]. (For pour and money)
 //			   [https://www.youtube.com/watch?v=qTX1lI8COuQ]. (For loading)
 //			   [https://youtu.be/watch?v=FwVRkhy5G04].        (For error)

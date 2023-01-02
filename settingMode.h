@@ -1,6 +1,8 @@
 ﻿// Note: This header file uses functions from QOL and audio headers,
 // for an explenation on what these functions do go to the respective header file.
-#pragma once // Uses libraries once.
+// it is probably a better idea to go to the header files first as the functions there are used here multiple times.
+
+#pragma once // Includes the file only once in a single compilation.
 
 #include <iostream>
 #include <string>
@@ -13,15 +15,6 @@
 
 // This are just there to make life easier.
 using namespace std;
-
-/*
-Note to self : 
-* - Fix the true false stuff. // Done.
-* - Remove switch case statements. // Done.
-* - Create a func that can change the types(names) of coffee. // Done.
-* - Put comments on everything.
-* - Create a func for sound. // Done.
-*/
 
 // Allows the user to change the amount of coffees inside the machines inventory.
 void coffeeInvent(int cAmnt[], string cTypes[]) {
@@ -106,9 +99,9 @@ void coinInvent(int coinAmnt[], const long double arrVal[]) {
 // Allows for the user to change the price of certain coffees.
 void changePrices(double cPrices[], string cTypes[]) {
 	short choice;
-	double temp;
+	double temp; // This variable is used to store a value temporarily, until the input is verified and then the value is sent to the actual array.
 
-	start:
+start:
 	cls();
 	cout << "Which coffee prices would you like to change?" << endl;
 	for (short i = 0; i < 5; i++) {
@@ -149,66 +142,67 @@ void changePrices(double cPrices[], string cTypes[]) {
 
 // Allows the user to allow/disallow certain coin types.
 void coinRule(bool arrAllow[], const long double arrVal[]) {
-short choice;
-char allow;
+	short choice;
+	char allow;
 
 start:
-cls();
-cout << "Which coin type would you like to Allow/Disallow?" << endl;
-
-for (short i = 0; i < 7; i++) {
-	if (arrAllow[i] == true) {
-		cout << (i + 1) << ") " << arrVal[i] << " BAM, it is set to: TRUE" << endl;
-	}
-	else if (arrAllow[i] == false){
-		cout << (i + 1) << ") " << arrVal[i] << " BAM, it is set to: FALSE" << endl;
-	}
-}
-cout << "8) Return." << endl << "~> "; // If the user made a mistake and wanted to go back.
-cin >> choice;
-beepBeep();
-
-// Check so that user isnt able to input an invalid value.
-if (!(choice >= 1) && !(choice <= 8)) {
-	cout << "Your input is invalid, try again";
-	error();
-	cinFlush();
-	pause();
-	goto start;
-}
-
-if (choice == 8) {
 	cls();
-	return;
-}
+	cout << "Which coin type would you like to Allow/Disallow?" << endl;
 
-cout << "Set to true(t) or false(f): " << endl;
-
-if (arrAllow[(choice - 1)] == true) {
-	cout << arrVal[(choice - 1)] << " is allowed, set to: " << endl << "~> ";
-	cin >> allow;
+	// Prints out Coin types one-by-one as well as saying if they are allowed or not.
+	for (short i = 0; i < 7; i++) {
+		if (arrAllow[i] == true) {
+			cout << (i + 1) << ") " << arrVal[i] << " BAM, it is set to: TRUE" << endl;
+		}
+		else if (arrAllow[i] == false){
+			cout << (i + 1) << ") " << arrVal[i] << " BAM, it is set to: FALSE" << endl;
+		}
+	}
+	cout << "8) Return." << endl << "~> "; // If the user made a mistake and wanted to go back.
+	cin >> choice;
 	beepBeep();
+
+	// Check so that user isnt able to input an invalid value.
+	if (!(choice >= 1) && !(choice <= 8)) {
+		cout << "Your input is invalid, try again";
+		error();
+		cinFlush();
+		pause();
+		goto start;
+	}
+
+	if (choice == 8) {
+		cls();
+		return;
+	}
+
+	cout << "Set to true(t) or false(f): " << endl;
+
+	if (arrAllow[(choice - 1)] == true) {
+		cout << arrVal[(choice - 1)] << " is allowed, set to: " << endl << "~> ";
+		cin >> allow;
+		beepBeep();
 	
-	if (allow != 't') {
-		arrAllow[(choice - 1)] = false;
+		if (allow != 't') {
+			arrAllow[(choice - 1)] = false;
+		}
 	}
-}
-else if(arrAllow[(choice - 1)] == false){
-	cout << arrVal[(choice - 1)] << " is not allowed, set to: " << endl << "~> ";
-	cin >> allow;
-	beepBeep();
-	if (allow != 'f') {
-		arrAllow[(choice - 1)] = true;
+	else if(arrAllow[(choice - 1)] == false){
+		cout << arrVal[(choice - 1)] << " is not allowed, set to: " << endl << "~> ";
+		cin >> allow;
+		beepBeep();
+		if (allow != 'f') {
+			arrAllow[(choice - 1)] = true;
+		}
 	}
-}
-goto start;
+	goto start;
 }
 
 // Allows the user to change the names of offered coffees.
 void coffeeName(string cTypes[]) {
 	short choice;
 
-	start:
+start:
 	cls();
 
 	cout << "Which coffee name would you like to modify?" << endl;
@@ -240,6 +234,7 @@ void coffeeName(string cTypes[]) {
 	else {
 		cout << "Your input is invalid, try again";
 		error();
+		cinFlush();
 		pause();
 	}
 	goto start;
@@ -248,7 +243,7 @@ void coffeeName(string cTypes[]) {
 // Shows the status and settings of all the functions.
 void stat(const long double arrVal[], double cPrices[], string cTypes[], int coinAmnt[], int cAmnt[], bool arrAllow[]) {
 	short choice;
-	start:
+start:
 	cls();
 
 	cout << "Coffee details:" << endl;
