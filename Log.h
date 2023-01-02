@@ -1,4 +1,5 @@
 #pragma once
+#pragma warning(disable : 4996) // To disable the deprecated error that show us when ctime function is used.
 
 #include<iostream>
 #include<fstream>
@@ -6,100 +7,43 @@
 #include<fstream>
 #include<string>
 #include <algorithm>
-#include"time.h"
+#include <ctime>
 
 
-void logCoffee(int coffeeCups[], int coinsAmmount[]){
+void logCoffee(std::string coffeeNames[], double coffeePrices[], const long double coinsValue[], int coffeeCups[], int coinsAmount[]) {
 
-    time_t rawDate = time(nullptr);// taking the time as second
-    char timestr[30];
-    //std::string date = ctime_s(timestr, sizeof timestr, &rawDate);
+	time_t rawDate = time(nullptr);// taking the time as second
 
-    //std::replace(date.begin(), date.end(), ' ','_');
-    //std::replace(date.begin(), date.end(), ':','-');
+	std::string date = ctime(&rawDate);
 
+	std::ofstream dbW("dataBase.txt", std::ios_base::out);
 
-    //std::cout<< date <<"\n";
+	dbW << date << "\n\n";
 
+	dbW << "Coffee types:\n";
+	for (int i = 0; i < 5; i++)
+		dbW << coffeeNames[i] << "\n";
 
-    std::ofstream dbW("dataBase.txt", std::ios_base::out);
-    //dbW << date;
-    dbW<<"Coffee Left:\n";
-    for(int i=0; i<5; i++){
-        switch (i){
-        
-        case 0:
-                dbW<<"Latte: "<<coffeeCups[i]<<'\n';
-                //ctotal + = 1 * coffeeCups[i];
-            break;
+	dbW << "\nCoffee prices:\n";
+	for (int i = 0; i < 5; i++)
+		dbW << coffeeNames[i] << " -> " << coffeePrices[i] << " KM." << "\n";
+	dbW << "\nValid Coin Types:\n";
+	for (int i = 0; i < 5; i++)
+		dbW << coinsValue[i] << "\n";
 
-        case 1:
-                dbW<<"Capu: "<<coffeeCups[i]<<'\n';
-            break;
-        
-        case 2:
-                dbW<<"Kafa: "<<coffeeCups[i]<<'\n';
-            break;
-        
-        case 3:
-                dbW<<"Kahve: "<<coffeeCups[i]<<'\n';
-            break;
+	dbW << "\nNumber of each coffee:\n";
+	for (int i = 0; i < 5; i++)
+		dbW << coffeeNames[i] << " -> " << coffeeCups[i] << '\n';
 
-        case 4:
-                dbW<<"Kola: "<<coffeeCups[i]<<'\n';
-            break;
-        
-        default:
-            break;
-        }
-    }
+	dbW << "\nCoin amounts:\n";
 
-    dbW<<"\nCoin amounts:\n";
+	double total = 0;
 
-    double total = 0;
+	for (int i = 0; i < 7; i++) {
+		dbW << coinsValue[i] << ": " << coinsAmount[i] << '\n';
+		total += coinsValue[i] * coinsAmount[i];
+	}
 
-    for(int i=0; i<7; i++){
-        switch (i){
-        
-        case 0:
-                dbW<<"0.5: "<<coinsAmmount[i]<<'\n';
-                total += 0.5*coinsAmmount[i];
-            break;
-
-        case 1:
-                dbW<<"0.1: "<<coinsAmmount[i]<<'\n';
-                total += 0.1*coinsAmmount[i];
-            break;
-        
-        case 2:
-                dbW<<"0.2: "<<coinsAmmount[i]<<'\n';
-                total += 0.2*coinsAmmount[i];
-            break;
-        
-        case 3:
-                dbW<<"1: "<<coinsAmmount[i]<<'\n';
-                total += 1*coinsAmmount[i];
-            break;
-
-        case 4:
-                dbW<<"5: "<<coinsAmmount[i]<<'\n';
-                total += 5*coinsAmmount[i];
-            break;
-        case 5:
-                dbW<<"10: "<<coinsAmmount[i]<<'\n';
-                total += 10*coinsAmmount[i];
-            break;
-        case 6:
-                dbW<<"20: "<<coinsAmmount[i]<<'\n';
-                total += 20*coinsAmmount[i];
-            break;
-        default:
-            break;
-        }
-    }
-
-
-    dbW<<"\nTotal: "<<total<<" KM.\n\nEnd of the File\n\n";
-
-
+	dbW << "\nTotal: " << total << " KM.\n\nEnd of the Log file\n\n";
 }
+
