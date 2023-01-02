@@ -30,7 +30,7 @@ int main()
     string coffeeNames[5] = { "Espresso", "Cappucino", "Hot Chocolate", "Melange", "Americano"};
     int coffeeCups[5] = { 3,3,3,3,3 };            //Number of each coffee            
     double coffeePrices[5] = { 2,2,3.5,3,1.5 };   //Prices of coffees       
-    int CoffeePosition;                           //Index of choosen coffe
+    int CoffeePosition;                           //Index of choosen coffee
     double Change;                                //Change that will be given back
     
     //COIN VARIABLES
@@ -85,7 +85,7 @@ int main()
 
     //END OF THE DAY EVALUATION
     cout << "END OF THE DAY EVALUATION: " << endl;
-    cout << "Creating file"; pause();
+    cout << "Creating file"; loading(); pause();
     logCoffee(coffeeCups, coinsAmount);
     cout << "Look for it in the text file attached ;)" << endl;
     system("notepad.exe database.txt"); // ACTUALLY OPENS UP THE FILE XD!!!!!!!!@!@q!!@!@!!!!!!!retwe%yre^%#qrtr

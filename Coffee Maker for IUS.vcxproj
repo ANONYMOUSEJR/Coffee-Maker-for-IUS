@@ -130,10 +130,19 @@
     <ClCompile Include="Coffee Maker for IUS.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="audio.h" />
     <ClInclude Include="log.h" />
     <ClInclude Include="operationMode.h" />
     <ClInclude Include="qualityOfLife.h" />
     <ClInclude Include="settingMode.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="beepbeep.wav" />
+    <Media Include="coffeeislove.wav" />
+    <Media Include="coffeepour.wav" />
+    <Media Include="coin.wav" />
+    <Media Include="error.wav" />
+    <Media Include="fax.wav" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

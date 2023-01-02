@@ -2,6 +2,7 @@
 #include <iostream>
 #include <cmath>
 #include "qualityOfLife.h"
+#include "audio.h"
 
 using std::cin;
 using std::cout;
@@ -49,6 +50,7 @@ double CoffeePayment(int amount[], bool allowed[], double price[],int coffeeType
 	do {
 		cout << "Please insert "<<remainingPrice<<" BAM more:" << endl<<"~> ";
 		cin >> coin;
+		money();
 		coinInFening = coin * 100;
 		switch(coinInFening){
 		case 5:
@@ -127,12 +129,14 @@ void ReturnMoney(const long double value[],int amount[],bool allowed[], double c
 //Pouring coffee
 void CoffeePour(int amount[],int coffeeIndex) {
 	cout << "Your coffee is being prepared ;)"<<endl;
+	pour();
 	pause();
 	amount[coffeeIndex]--;
-	cout << "Enjoy your coffe"<<endl;
+	cout << "Enjoy your coffee"<<endl;
 }
 
 /*
 * Kupit makarone, jaje, sampon za kosu, germu i abc sir
 * TOALET PAPIR!
+* profesoru cokoladicu.
 */
