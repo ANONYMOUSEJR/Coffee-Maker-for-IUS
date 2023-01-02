@@ -38,13 +38,14 @@ int ReturnCoffeePosition(int arr[],string names[]) {
 //Inserting appropirate coins in the machine, and returns how much change should be given
 double CoffeePayment(int amount[], bool allowed[], double price[],int coffeeType) {
 	
-	double coin;
-	double remainingPrice;
-	int coinIndex;
-	int coffeePrice;
-	int coinInFening;
+	double coin; // The value of the coin inserted
+	double remainingPrice; // How much more money is expected
+	int coinIndex; // Index of the type of coin entered
+	int coffeePrice; // Price of the coffee
+	int coinInFening; //BAM into fenings, used because switch case does not support doubles
 	coffeePrice = price[coffeeType];
 	remainingPrice = coffeePrice;
+
 	cout << "The coffee you have chosen costs "<<coffeePrice<<" BAM." << endl;
 	
 	do {
@@ -119,7 +120,7 @@ void ReturnMoney(const long double value[],int amount[],bool allowed[], double c
 		
 
 	}
-	double isItEpsilon = fabs(change-0.05); 
+	double isItEpsilon = fabs(change-0.05); //Following few lines are for fixing the problem caused by cpps memory storage flaws
 	if (isItEpsilon < 0.001) {
 		cout << 0.05;
 	}	
@@ -134,9 +135,3 @@ void CoffeePour(int amount[],int coffeeIndex) {
 	amount[coffeeIndex]--;
 	cout << "Enjoy your coffee"<<endl;
 }
-
-/*
-* Kupit makarone, jaje, sampon za kosu, germu i abc sir
-* TOALET PAPIR!
-* profesoru cokoladicu.
-*/
