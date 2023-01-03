@@ -10,7 +10,7 @@
 #include <ctime>
 
 
-void logCoffee(std::string coffeeNames[], double coffeePrices[], const long double coinsValue[], int coffeeCups[], int coinsAmount[]) {
+void logCoffee(std::string coffeeNames[], double coffeePrices[], const long double coinsValue[], int coffeeCups[], int coinsAmount[], bool arrAllow[]) {
 
 	time_t rawDate = time(nullptr);// taking the time as second
 
@@ -29,7 +29,7 @@ void logCoffee(std::string coffeeNames[], double coffeePrices[], const long doub
 		dbW << coffeeNames[i] << " -> " << coffeePrices[i] << " KM." << "\n";
 	dbW << "\nValid Coin Types:\n";
 	for (int i = 0; i < 5; i++)
-		dbW << coinsValue[i] << "\n";
+		dbW << coinsValue[i] << " -> " << arrAllow[i] << "\n";
 
 	dbW << "\nNumber of each coffee:\n";
 	for (int i = 0; i < 5; i++)
