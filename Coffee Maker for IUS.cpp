@@ -41,19 +41,23 @@ int main()
     do {
         //MODE MENU
         oasis1:
-        system("color f");
+        white();
         cls();
         cout << "Do you wish the use the setting mode or operation mode <s/o>" << endl << "~> ";
         cin >> setModeOrUserMode;
         if (setModeOrUserMode == 's') {
+            yello();
             settingModeMenu(coinsValue, coffeePrices, coffeeNames, coinsAmount, coffeeCups, coinsAllowed);
+            white();
             
         }
         else if (setModeOrUserMode == 'o') {
+            purple();
             CoffeePosition = ReturnCoffeePosition(coffeeCups,coffeeNames);
             Change= CoffeePayment(coinsAmount, coinsAllowed, coffeePrices, CoffeePosition);
             ReturnMoney(coinsValue,coinsAmount,coinsAllowed,Change);
             CoffeePour(coffeeCups,CoffeePosition);
+            white();
         }
         else if (setModeOrUserMode == 'e') {
             easterEgg();

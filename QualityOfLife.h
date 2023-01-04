@@ -68,7 +68,7 @@ bool isDouble(double num) {
 
 // Self explanitory...
 void easterEgg() {
-	system("color e");
+	yello();
 	cls();
 	egg();
 	// Sets the given text into a string var.
@@ -83,11 +83,25 @@ void easterEgg() {
 	pause();// This give the user enough time to read.
 	pause();
 	cls();
-	system("color 7");
+	white();
 }
 
 // Clears out a potentially corrupted cin.
 void cinFlush() {
 	cin.clear(); // Clears any error flags in the input stream.
 	cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignores all characters up until the newline character.
+}
+
+// Colors.
+void white() {
+	system("color f");
+}
+
+void purple() {
+	system("color d");
+}
+
+// Spelled like this on purpose!
+void yello() {
+	system("color e");
 }
