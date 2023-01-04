@@ -19,7 +19,16 @@ using std::chrono::milliseconds;
 
 // Just to prettify stuff...
 void boundary() {
-	cout << "*****************************************************************" << endl;
+	cout << endl;
+	string load = "*****************************************************************";
+	short x = 0;
+	
+	while (load[x] != '\0') {
+		cout << load[x];
+		sleep_for(milliseconds(50));
+		x++;
+	}
+	cout << endl;
 }
 
 // Creates the three dot loading thing...

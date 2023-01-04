@@ -251,14 +251,15 @@ start:
 void stat(const long double arrVal[], double cPrices[], string cTypes[], int coinAmnt[], int cAmnt[], bool arrAllow[]) {
 	short choice;
 start:
+	loading();
 	cls();
-
+	boundary();
 	cout << "Coffee details:" << endl;
 	for (short i = 0; i < 5; i++) {
 		cout << (i + 1) << ") " << cTypes[i] << ": " << cPrices[i] << " KM. 	Amount left:" << cAmnt[i] << endl;
 	}
 
-	cout << endl;
+	
 	boundary();
 	cout << endl;
 
