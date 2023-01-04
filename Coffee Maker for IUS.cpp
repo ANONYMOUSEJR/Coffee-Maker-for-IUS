@@ -78,6 +78,7 @@ int main()
         else {
             cout << "Invalid input" << endl;
             pause();
+            cinFlush();
             goto oasis2;
         }
 

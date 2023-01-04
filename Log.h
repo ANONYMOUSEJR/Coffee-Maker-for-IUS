@@ -44,6 +44,7 @@ void logCoffee(std::string coffeeNames[], double coffeePrices[], const long doub
 		total += coinsValue[i] * coinsAmount[i];
 	}
 
-	dbW << "\nTotal: " << total << " KM.\n\nEnd of the Log file\n\n";
+	dbW << "\nMoney Earned: "<< (total - 26.55);
+	dbW << "\nTotal in Machine: " << total << " KM.\n\n" << "\n\nEnd of the Log file\n\n";
 }
 
