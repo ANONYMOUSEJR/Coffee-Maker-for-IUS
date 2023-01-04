@@ -259,7 +259,7 @@ start:
 		cout << (i + 1) << ") " << cTypes[i] << ": " << cPrices[i] << " KM. 	Amount left:" << cAmnt[i] << endl;
 	}
 
-	
+	loading();
 	boundary();
 	cout << endl;
 
@@ -338,6 +338,7 @@ start:
 	default:
 		cout << "Your input is invalid, try again";
 		error();
+		cinFlush;
 		pause();
 		break;
 	}
