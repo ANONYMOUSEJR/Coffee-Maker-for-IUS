@@ -17,6 +17,20 @@ using std::chrono::milliseconds;
 
 // Quality Of Life Functions:
 
+// Colors.
+void white() {
+	system("color f");
+}
+
+void purple() {
+	system("color d");
+}
+
+// Spelled like this on purpose!
+void yello() {
+	system("color e");
+}
+
 // Just to prettify stuff...
 void boundary() {
 	cout << endl;
@@ -90,18 +104,4 @@ void easterEgg() {
 void cinFlush() {
 	cin.clear(); // Clears any error flags in the input stream.
 	cin.ignore(numeric_limits<streamsize>::max(), '\n'); // Ignores all characters up until the newline character.
-}
-
-// Colors.
-void white() {
-	system("color f");
-}
-
-void purple() {
-	system("color d");
-}
-
-// Spelled like this on purpose!
-void yello() {
-	system("color e");
 }
