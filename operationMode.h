@@ -12,25 +12,29 @@ using std::fabs;
 
 //Input which coffee the user wants, and returns its index position
 int ReturnCoffeePosition(int arr[],string names[]) {
-	int userCoffeeChoice;
-	cout << "Coffee options:" << endl;
-	for (int i = 0; i < 5; i++) {
-		cout << i+1 << ") " << names[i] << endl;
-	}
-	cout << "Please enter the number of your chosen hot beverage:\n ";
 	do {
-		cout << "~> ";
+		cls();
+		int userCoffeeChoice;
+		cout << "Coffee options:" << endl;
+		for (int i = 0; i < 5; i++) {
+			cout << i+1 << ") " << names[i] << endl;
+		}
+		cout << "Please enter the number of your chosen hot beverage:\n";
+		cout <<"~> ";
 		cin >> userCoffeeChoice;
 		if ((userCoffeeChoice == 1) || (userCoffeeChoice == 2) || (userCoffeeChoice == 3) || (userCoffeeChoice == 4) || (userCoffeeChoice == 5)) {
 			if (arr[(userCoffeeChoice - 1)] > 0) {
 				return (userCoffeeChoice - 1);
 			}
 			else {
-				cout << "We are out of " << names[userCoffeeChoice - 1] << ", please pick soomething else." << endl;
+				cout << "We are out of " << names[userCoffeeChoice - 1] << ", please pick something else." << endl;
 			}
 		}
 		else {
 			cout << "We do not have that coffee, please pick something else" << endl;
+			cinFlush();
+			pause();
+			cls();
 		}
 	} while (true);
 }
@@ -45,12 +49,26 @@ double CoffeePayment(int amount[], bool allowed[], double price[],int coffeeType
 	int coinInFening; //BAM into fenings, used because switch case does not support doubles
 	coffeePrice = price[coffeeType];
 	remainingPrice = coffeePrice;
-
-	cout << "The coffee you have chosen costs "<<coffeePrice<<" BAM." << endl;
-	
+	cls();
+	cout << "The coffee you have chosen costs "<<coffeePrice<<" BAM." << endl << "~> ";
+	short count=0;
 	do {
-		cout << "Please insert "<<remainingPrice<<" BAM more:" << endl<<"~> ";
+		if (count >= 1) {
+			start:
+			cls();
+			cout << "Please insert " << remainingPrice << " BAM more:" << endl << "~> ";
+			if (!isDouble(coin)) {
+				cls();
+				cout << "This input is invalid, try again";
+				cinFlush();
+				pause();
+				cls();
+				goto start;
+			}
+		}
 		cin >> coin;
+		count++;
+
 		money();
 		coinInFening = coin * 100;
 		switch(coinInFening){
@@ -129,9 +147,11 @@ void ReturnMoney(const long double value[],int amount[],bool allowed[], double c
 
 //Pouring coffee
 void CoffeePour(int amount[],int coffeeIndex) {
+	cls();
 	cout << "Your coffee is being prepared ;)"<<endl;
 	pour();
 	pause();
+	cls();
 	amount[coffeeIndex]--;
 	cout << "Enjoy your coffee"<<endl;
 }

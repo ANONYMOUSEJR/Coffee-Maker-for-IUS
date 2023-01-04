@@ -45,6 +45,7 @@ int main()
         cls();
         cout << "Do you wish the use the setting mode or operation mode <s/o>" << endl << "~> ";
         cin >> setModeOrUserMode;
+        cls();
         if (setModeOrUserMode == 's') {
             yello();
             settingModeMenu(coinsValue, coffeePrices, coffeeNames, coinsAmount, coffeeCups, coinsAllowed);
