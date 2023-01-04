@@ -43,7 +43,7 @@ int main()
         oasis1:
         system("color f");
         cls();
-        cout << "Do you wish the use the setting mode or operation mode <s/o>" << endl;
+        cout << "Do you wish the use the setting mode or operation mode <s/o>" << endl << "~> ";
         cin >> setModeOrUserMode;
         if (setModeOrUserMode == 's') {
             settingModeMenu(coinsValue, coffeePrices, coffeeNames, coinsAmount, coffeeCups, coinsAllowed);
@@ -66,7 +66,7 @@ int main()
 
         //CONTINUE OR NOT
         oasis2:
-        cout << "Do you wish to use the machine more? <y/n>" << endl;
+        cout << "Do you wish to use the machine more? <y/n>" << endl << "~> ";
         cin >> endOfTheDay;
         if (endOfTheDay == 'y') {
             cout << endl;
