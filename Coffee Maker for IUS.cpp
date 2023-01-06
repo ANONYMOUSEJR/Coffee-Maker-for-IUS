@@ -31,9 +31,9 @@ int main()
     int coffeeCups[5] = { 3,3,3,3,3 };            //Number of each coffee            
     double coffeePrices[5] = { 2,2,3.5,3,1.5 };   //Prices of coffees       
     int CoffeePosition;                           //Index of choosen coffee
-    double Change;                                //Change that will be given back
     
     //COIN VARIABLES
+    double Change;                                                       //Change that will be given back
     const long double coinsValue[7] = { 0.05,0.1,0.2,0.5,1,2,5 };        //Value of coins
     int coinsAmount[7] = {3,3,3,3,3,3,3};                                //Amount of coins
     bool coinsAllowed[7] = {true, true, true, true, true, true, true};   //Acceptable coins
@@ -89,7 +89,7 @@ int main()
     cout << "Creating file"; loading(); pause();
     logCoffee(coffeeNames, coffeePrices, coinsValue, coffeeCups, coinsAmount);
     cout << "Look for it in the text file attached ;)" << endl;
-    system("notepad.exe database.txt"); // ACTUALLY OPENS UP THE FILE XD!!!!!!!!@!@q!!@!@!!!!!!!retwe%yre^%#qrtr
+    system("notepad.exe database.txt"); //OPENS UP THE FILE
 
     return 0;
 }
