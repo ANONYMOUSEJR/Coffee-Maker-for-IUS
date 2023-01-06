@@ -21,16 +21,16 @@ using std::string;
 
 int main()
 {
-
+  
     //FUNCTIONAL VARIABLES
     char setModeOrUserMode;   //Which mode to use
-    char endOfTheDay;         //Finnish the machine
+    char endOfTheDay;         //Finish operating the program
 
     //COFFEE VARIABLES
     string coffeeNames[5] = { "Espresso", "Cappucino", "Hot Chocolate", "Melange", "Americano"};
     int coffeeCups[5] = { 3,3,3,3,3 };            //Number of each coffee            
-    double coffeePrices[5] = { 2,2,3.5,3,1.5 };   //Prices of coffees       
-    int CoffeePosition;                           //Index of choosen coffee
+    double coffeePrices[5] = { 2,2,3.5,3,1.5 };   //Prices of coffee     
+    int CoffeePosition;                           //Index of chosen coffee
     double Change;                                //Change that will be given back
     
     //COIN VARIABLES
@@ -41,24 +41,18 @@ int main()
     do {
         //MODE MENU
         oasis1:
-        white();
         cls();
-        cout << "Do you wish the use the setting mode or operation mode <s/o>" << endl << "~> ";
+        cout << "Do you wish the use the setting mode or operation mode <s/o>" << endl;
         cin >> setModeOrUserMode;
-        cls();
         if (setModeOrUserMode == 's') {
-            yello();
             settingModeMenu(coinsValue, coffeePrices, coffeeNames, coinsAmount, coffeeCups, coinsAllowed);
-            white();
             
         }
         else if (setModeOrUserMode == 'o') {
-            purple();
             CoffeePosition = ReturnCoffeePosition(coffeeCups,coffeeNames);
             Change= CoffeePayment(coinsAmount, coinsAllowed, coffeePrices, CoffeePosition);
             ReturnMoney(coinsValue,coinsAmount,coinsAllowed,Change);
             CoffeePour(coffeeCups,CoffeePosition);
-            white();
         }
         else if (setModeOrUserMode == 'e') {
             easterEgg();
@@ -71,7 +65,7 @@ int main()
 
         //CONTINUE OR NOT
         oasis2:
-        cout << "Do you wish to use the machine more? <y/n>" << endl << "~> ";
+        cout << "Do you wish to use the machine more? <y/n>" << endl;
         cin >> endOfTheDay;
         if (endOfTheDay == 'y') {
             cout << endl;
@@ -83,7 +77,6 @@ int main()
         else {
             cout << "Invalid input" << endl;
             pause();
-            cinFlush();
             goto oasis2;
         }
 
@@ -93,9 +86,12 @@ int main()
     //END OF THE DAY EVALUATION
     cout << "END OF THE DAY EVALUATION: " << endl;
     cout << "Creating file"; loading(); pause();
-    logCoffee(coffeeNames, coffeePrices, coinsValue, coffeeCups, coinsAmount, coinsAllowed);
+    logCoffee(coffeeCups, coinsAmount);
     cout << "Look for it in the text file attached ;)" << endl;
-    system("notepad.exe database.txt"); // ACTUALLY OPENS UP THE FILE XD!!!!!!!!@!@q!!@!@!!!!!!!retwe%yre^%#qrt
+    system("notepad.exe database.txt"); // opens the file
 
     return 0;
 }
+/*
+* https://www.youtube.com/watch?v=Uf0AnY9D9gw
+*/

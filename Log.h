@@ -10,7 +10,7 @@
 #include <ctime>
 
 
-void logCoffee(std::string coffeeNames[], double coffeePrices[], const long double coinsValue[], int coffeeCups[], int coinsAmount[]) {
+void logCoffee(std::string coffeeNames[], double coffeePrices[], const long double coinsValue[], int coffeeCups[], int coinsAmount[], bool arrAllow[]) {
 
 	time_t rawDate = time(nullptr);// taking the time as second
 
@@ -20,30 +20,36 @@ void logCoffee(std::string coffeeNames[], double coffeePrices[], const long doub
 
 	dbW << date << "\n\n";
 
-	dbW << "Coffee types:\n";
+	dbW << "~Coffee types~\n";
 	for (int i = 0; i < 5; i++)
-		dbW << coffeeNames[i] << "\n";
+		dbW << "  " << coffeeNames[i] << "\n";
 
-	dbW << "\nCoffee prices:\n";
+	dbW << "\n~Coffee prices~\n";
 	for (int i = 0; i < 5; i++)
-		dbW << coffeeNames[i] << " -> " << coffeePrices[i] << " KM." << "\n";
-	dbW << "\nValid Coin Types:\n";
+		dbW << "  " << coffeeNames[i] << " -> " << coffeePrices[i] << " KM." << "\n";
+	dbW << "\n~Valid Coin Types~\n";
 	for (int i = 0; i < 5; i++)
-		dbW << coinsValue[i] << "\n";
+		if (arrAllow[i] == 1) {
+			dbW << "  " << coinsValue[i] << " -> TRUE.\n";
+		}
+		else if (arrAllow[i] == 0) {
+			dbW << "  " << coinsValue[i] << " -> FALSE.\n";
+		}
 
-	dbW << "\nNumber of each coffee:\n";
+	dbW << "\n~Number of each coffee~\n";
 	for (int i = 0; i < 5; i++)
-		dbW << coffeeNames[i] << " -> " << coffeeCups[i] << '\n';
+		dbW << "  " << coffeeNames[i] << " -> " << coffeeCups[i] << '\n';
 
-	dbW << "\nCoin amounts:\n";
+	dbW << "\n~Coin amounts~\n";
 
 	double total = 0;
 
 	for (int i = 0; i < 7; i++) {
-		dbW << coinsValue[i] << ": " << coinsAmount[i] << '\n';
+		dbW << "  " << coinsValue[i] << ": " << coinsAmount[i] << '\n';
 		total += coinsValue[i] * coinsAmount[i];
 	}
 
-	dbW << "\nTotal: " << total << " KM.\n\nEnd of the Log file\n\n";
+	dbW << "  " << "\n~Money Earned: "<< (total - 26.55);
+	dbW << "  " << "\n~Total in Machine: " << total << " KM.\n\n" << "  " << "\n\n~End of the Log file :)\n\n";
 }
 

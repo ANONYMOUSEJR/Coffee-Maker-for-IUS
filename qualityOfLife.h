@@ -17,9 +17,32 @@ using std::chrono::milliseconds;
 
 // Quality Of Life Functions:
 
+// Colors.
+void white() {
+	system("color f");
+}
+
+void purple() {
+	system("color d");
+}
+
+// Spelled like this on purpose!
+void yello() {
+	system("color e");
+}
+
 // Just to prettify stuff...
 void boundary() {
-	cout << "*****************************************************************" << endl;
+	cout << endl;
+	string load = "*****************************************************************";
+	short x = 0;
+	
+	while (load[x] != '\0') {
+		cout << load[x];
+		sleep_for(milliseconds(50));
+		x++;
+	}
+	cout << endl;
 }
 
 // Creates the three dot loading thing...
@@ -59,7 +82,7 @@ bool isDouble(double num) {
 
 // Self explanitory...
 void easterEgg() {
-	system("color e");
+	yello();
 	cls();
 	egg();
 	// Sets the given text into a string var.
@@ -74,7 +97,7 @@ void easterEgg() {
 	pause();// This give the user enough time to read.
 	pause();
 	cls();
-	system("color 7");
+	white();
 }
 
 // Clears out a potentially corrupted cin.
