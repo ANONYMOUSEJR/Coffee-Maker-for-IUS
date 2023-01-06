@@ -49,12 +49,14 @@ double CoffeePayment(int amount[], bool allowed[], double price[],int coffeeType
 	int coinInFening; //BAM into fenings, used because switch case does not support doubles
 	coffeePrice = price[coffeeType];
 	remainingPrice = coffeePrice;
+	short count = 0;
+	start:
 	cls();
-	cout << "The coffee you have chosen costs "<<coffeePrice<<" BAM." << endl << "~> ";
-	short count=0;
+	if (count == 0) {
+		cout << "The coffee you have chosen costs " << coffeePrice << " BAM." << endl << "~> ";
+	}
 	do {
 		if (count >= 1) {
-			start:
 			cls();
 			cout << "Please insert " << remainingPrice << " BAM more:" << endl << "~> ";
 			if (!isDouble(coin)) {
@@ -68,6 +70,16 @@ double CoffeePayment(int amount[], bool allowed[], double price[],int coffeeType
 		}
 		cin >> coin;
 		count++;
+
+		if (!isDouble(coin)) {
+			cls();
+			cout << "This input is invalid, try again";
+			cinFlush();
+			pause();
+			cls();
+			count--;
+			goto start;
+		}
 
 		money();
 		coinInFening = coin * 100;
@@ -94,15 +106,22 @@ double CoffeePayment(int amount[], bool allowed[], double price[],int coffeeType
 			coinIndex = 6;
 			break;
 		default:
+			cls();
 			cout << "This type of coin is not acceptable." << endl;
-			continue;
+			pause();
+			count--;
+			goto start;
 		}
 		if (allowed[coinIndex]) {
 			amount[coinIndex]++;
-			remainingPrice = remainingPrice - coin;
+			remainingPrice -= coin;
 		}
 		else {
-			cout << "This type of coin is not acceptable." << endl;
+			cls();
+			cout << "This type of coin is not acceptable" << endl;
+			pause();
+			count--;
+			goto start;
 		}
 
 	} while (remainingPrice>0);

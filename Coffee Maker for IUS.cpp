@@ -21,7 +21,6 @@ using std::string;
 
 int main()
 {
-
     //FUNCTIONAL VARIABLES
     char setModeOrUserMode;   //Which mode to use
     char endOfTheDay;         //Finnish the machine
