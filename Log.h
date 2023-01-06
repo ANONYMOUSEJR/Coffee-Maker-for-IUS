@@ -28,7 +28,7 @@ void logCoffee(std::string coffeeNames[], double coffeePrices[], const long doub
 	for (int i = 0; i < 5; i++)
 		dbW << "  " << coffeeNames[i] << " -> " << coffeePrices[i] << " KM." << "\n";
 	dbW << "\n~Valid Coin Types~\n";
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < 7; i++)
 		if (arrAllow[i] == 1) {
 			dbW << "  " << coinsValue[i] << " -> TRUE.\n";
 		}
