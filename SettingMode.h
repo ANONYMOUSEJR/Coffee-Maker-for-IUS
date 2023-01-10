@@ -43,6 +43,7 @@ void coffeeInvent(int cAmnt[], string cTypes[]) {
 			if (!isPos(temp)) { 
 				cout << "Your input is invalid, try again";
 				error();
+				cinFlush();
 				pause();
 				goto start; 
 			}
