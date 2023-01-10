@@ -98,6 +98,7 @@ void coinInvent(int coinAmnt[], const long double arrVal[]) {
 	else {
 		cout << "Your input is invalid, try again";
 		error();
+		cinFlush();
 		pause();
 	}
 	goto start;
