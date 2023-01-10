@@ -166,8 +166,7 @@ void ReturnMoney(const long double value[],int amount[],bool allowed[], double c
 
 //Pouring coffee
 void CoffeePour(int amount[],int coffeeIndex) {
-	cls();
-	cout << "Your coffee is being prepared ;)"<<endl;
+	cout << endl << "Your coffee is being prepared ;)" << endl;
 	pour();
 	pause();
 	cls();
