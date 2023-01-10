@@ -64,6 +64,7 @@ int main()
         }
         else {
             cout << "Invalid input" << endl;
+            cinFlush();
             pause();
             goto oasis1;
         }
