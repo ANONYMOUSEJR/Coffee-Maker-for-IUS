@@ -23,7 +23,7 @@ int main()
 {
     //FUNCTIONAL VARIABLES
     char setModeOrUserMode;   //Which mode to use
-    char endOfTheDay;         //Finnish the machine
+    char endOfTheDay;         //Finish the machine
 
     //COFFEE VARIABLES
     string coffeeNames[5] = { "Espresso", "Cappucino", "Hot Chocolate", "Melange", "Americano"};
@@ -47,12 +47,14 @@ int main()
         cls();
         if (setModeOrUserMode == 's') {
             yello();
+            cinFlush();
             settingModeMenu(coinsValue, coffeePrices, coffeeNames, coinsAmount, coffeeCups, coinsAllowed);
             white();
             
         }
         else if (setModeOrUserMode == 'o') {
             purple();
+            cinFlush();
             CoffeePosition = ReturnCoffeePosition(coffeeCups,coffeeNames);
             Change= CoffeePayment(coinsAmount, coinsAllowed, coffeePrices, CoffeePosition);
             ReturnMoney(coinsValue,coinsAmount,coinsAllowed,Change);
@@ -60,6 +62,7 @@ int main()
             white();
         }
         else if (setModeOrUserMode == 'e') {
+            cinFlush();
             easterEgg();
         }
         else {
@@ -75,9 +78,11 @@ int main()
         cin >> endOfTheDay;
         if (endOfTheDay == 'y') {
             cout << endl;
+            cinFlush();
         }
         else if (endOfTheDay == 'n') {
             cout << endl;
+            cinFlush();
             break;
         }
         else {

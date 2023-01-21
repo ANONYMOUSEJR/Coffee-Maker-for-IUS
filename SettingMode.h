@@ -127,8 +127,14 @@ start:
 	if ((choice >= 1) && (choice <= 6)) {
 		cout << cPrices[choice - 1] << "~> ";
 		cin >> temp;
-		beepBeep();
 		if (!isDouble(temp)) {
+			cout << "Your input is invalid, try again";
+			error();
+			cinFlush();
+			pause();
+			goto start;
+		}
+		if (!isPos(temp)) {
 			cout << "Your input is invalid, try again";
 			error();
 			cinFlush();
@@ -137,6 +143,7 @@ start:
 		}
 		else{
 			cPrices[choice - 1] = temp;
+			beepBeep();
 		}
 	}else{
 		cout << "Your input is invalid, try again";
