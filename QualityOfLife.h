@@ -1,7 +1,9 @@
 #pragma once
 
 #include<iostream>
+#include <string>
 #include<limits>
+#include <iomanip> // For setw() func.
 #include"audio.h"
 
 #undef max 
@@ -98,6 +100,45 @@ void easterEgg() {
 	pause();
 	cls();
 	white();
+}
+
+// Counts how many digits are in a single double variable.
+int _digCount(double cPrice) {
+	int x = int(cPrice);
+	return (to_string(x).length());
+}
+
+// To find the longest digit in an array.
+int digCount(double cPrice[]) {
+	int digCount = 0;
+	for (short i = 0; i < 5; i++) {
+		if (digCount < to_string(cPrice[i]).length()) {
+			digCount = to_string(cPrice[i]).length();
+		}
+	}
+	return digCount;
+}
+
+// To find the longest coffee name in an array.
+int charCount(string cTypes[]) {
+	int strSize = 0;
+	for (short i = 0; i < 5; i++) {
+		if (strSize <= cTypes[i].length()) {
+			strSize = cTypes[i].length();
+		}
+	}
+	return strSize;
+}
+
+// Uses the counted digits to know how many to print out... plus 3 for the dot and two decimal points.
+void print(string str, double cPrice, int i) {
+	string x = str, y;
+	short n = 0;
+	while (n < (_digCount(cPrice) + 3)) {
+		y +=  x[n];
+		n++;
+	}
+	cout << setw(i) << y;
 }
 
 // Clears out a potentially corrupted cin.

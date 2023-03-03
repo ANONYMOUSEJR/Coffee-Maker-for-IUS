@@ -7,6 +7,7 @@
 #include <iostream>
 #include <string>
 #include <limits>
+#include <iomanip> // For setw() func.
 #include "audio.h"
 #include "qualityOfLife.h"
 
@@ -18,20 +19,20 @@ using namespace std;
 
 // Allows the user to change the amount of coffees inside the machines inventory.
 void coffeeInvent(int cAmnt[], string cTypes[]) {
-	short choice;
+	short choice, strSize = charCount(cTypes);
 	int temp;
 
 	start:
 	cls();
 	cout << "Which type of coffee would you like to change the amount of?" << endl;
 	for (short i = 0; i < 5; i++) {
-		cout << (i + 1) << ") " << cTypes[i] << ": " << cAmnt[i] << endl;
+		cout << (i + 1) << ") " << setw(strSize + 1) << cTypes[i] << ": " << cAmnt[i] << endl;
 	}
-	cout << "6) Return." << endl << "~> ";
+	cout << "0) Return." << endl << "~> ";
 	cin >> choice;
 	beepBeep();
 
-	if (choice == 6) {
+	if (choice == 0) {
 		cls();
 		return;
 	}
@@ -69,13 +70,13 @@ void coinInvent(int coinAmnt[], const long double arrVal[]) {
 	cls();
 	cout << "Which coin amount would you like to change?" << endl;
 	for (short i = 0; i < 7; i++) {
-		cout << (i + 1) << ") " << arrVal[i] << ": " << coinAmnt[i] << endl;
+		cout << (i + 1) << ") " << setw(4) << arrVal[i] << ": " << coinAmnt[i] << endl;
 	}
-	cout << "8) Return." << endl << "~> ";
+	cout << "0) Return." << endl << "~> ";
 	cin >> choice;
 	beepBeep();
 
-	if (choice == 8) {
+	if (choice == 0) {
 		cls();
 		return;
 	}
@@ -107,24 +108,25 @@ void coinInvent(int coinAmnt[], const long double arrVal[]) {
 // Allows for the user to change the price of certain coffees.
 void changePrices(double cPrices[], string cTypes[]) {
 	short choice;
+	int strSize = charCount(cTypes);
 	double temp; // This variable is used to store a value temporarily, until the input is verified and then the value is sent to the actual array.
 
 start:
 	cls();
-	cout << "Which coffee prices would you like to change?" << endl;
+	cout << "Which coffee prices would you like to modify?" << endl;
 	for (short i = 0; i < 5; i++) {
-		cout << (i + 1) << ") " << cTypes[i] << ": " << cPrices[i] << endl;
+		cout << (i + 1) << ") " << setw(strSize + 1) << cTypes[i] << ": "; print(to_string(cPrices[i]), cPrices[i], digCount(cPrices) - 3); cout << " KM." << endl;
 	}
-	cout << "6) Return." << endl << "~> ";
+	cout << "0) Return." << endl << "~> ";
 	cin >> choice;
 	beepBeep();
 
-	if (choice == 6) {
+	if (choice == 0) {
 		cls();
 		return;
 	}
 
-	if ((choice >= 1) && (choice <= 6)) {
+	if ((choice >= 1) && (choice <= 5)) {
 		cout << cPrices[choice - 1] << "~> ";
 		cin >> temp;
 		if (!isDouble(temp)) {
@@ -167,51 +169,35 @@ start:
 	// Prints out Coin types one-by-one as well as saying if they are allowed or not.
 	for (short i = 0; i < 7; i++) {
 		if (arrAllow[i] == true) {
-			cout << (i + 1) << ") " << arrVal[i] << " BAM, it is set to: TRUE" << endl;
+			cout << (i + 1) << ") " << setw(4) << arrVal[i] << " BAM, it is set to: TRUE." << endl;
 		}
 		else if (arrAllow[i] == false){
-			cout << (i + 1) << ") " << arrVal[i] << " BAM, it is set to: FALSE" << endl;
+			cout << (i + 1) << ") " << setw(4) << arrVal[i] << " BAM, it is set to: FALSE." << endl;
 		}
 	}
-	cout << "8) Return." << endl << "~> "; // If the user made a mistake and wanted to go back.
+	cout << "0) Return." << endl << "~> "; // If the user made a mistake and wanted to go back.
 	cin >> choice;
 	beepBeep();
 
-	if (choice == 8) {
+	if (choice == 0) {
 		cls();
 		return;
 	}
 
-	if ((choice >= 1) && (choice <= 8)) {
-		cout << "Set to true(t) or false(f): " << endl;
-
+	if ((choice >= 1) && (choice <= 7)) {
 		if (arrAllow[(choice - 1)] == true) {
-			cout << arrVal[(choice - 1)] << " is allowed, set to: " << endl << "~> ";
-			cin >> allow;
-			beepBeep();
-
-			if (allow != 't') {
-				arrAllow[(choice - 1)] = false;
-			}
+			arrAllow[(choice - 1)] = false;
 		}
 		else if (arrAllow[(choice - 1)] == false) {
-			cout << arrVal[(choice - 1)] << " is not allowed, set to: " << endl << "~> ";
-			cin >> allow;
-			beepBeep();
-			if (allow != 'f') {
-				arrAllow[(choice - 1)] = true;
-			}
+			arrAllow[(choice - 1)] = true;
 		}
 	}
-	else
-	{
+	else {
 		cout << "Your input is invalid, try again";
 		error();
 		cinFlush();
 		pause();
-		goto start;
 	}
-
 	goto start;
 }
 
@@ -227,11 +213,11 @@ start:
 	for (short i = 0; i < 5; i++) {
 		cout << (i + 1) << ") " << cTypes[i] << "." << endl;
 	}
-	cout << "6) Return." << endl << "~> ";
+	cout << "0) Return." << endl << "~> ";
 	cin >> choice;
 	beepBeep();
 
-	if (choice == 6) {
+	if (choice == 0) {
 		cls();
 		return;
 	}
@@ -259,28 +245,29 @@ start:
 
 // Shows the status and settings of all the functions.
 void stat(const long double arrVal[], double cPrices[], string cTypes[], int coinAmnt[], int cAmnt[], bool arrAllow[]) {
-	short choice;
+	short choice = 0, strSize = charCount(cTypes);
 start:
 	loading();
 	cls();
-	boundary();
+	//boundary();
+
 	cout << "Coffee details:" << endl;
 	for (short i = 0; i < 5; i++) {
-		cout << (i + 1) << ") " << cTypes[i] << ": " << cPrices[i] << " KM. 	Amount left:" << cAmnt[i] << endl;
+		cout << (i + 1) << ") " << setw(strSize + 1) << cTypes[i] << ": "; print(to_string(cPrices[i]), cPrices[i], 9); cout << " KM. " << setw(18) << "Amount left: " << cAmnt[i] << endl;
 	}
 
 	loading();
-	boundary();
+	//boundary();
 	cout << endl;
 
 	cout << "Monetary details:" << endl;
 
 	for (short i = 0; i < 7; i++) {
 		if (arrAllow[i] == true) {
-			cout << (i + 1) << ") " << arrVal[i] << " BAM, it is set to: TRUE.		Amount Left: " << coinAmnt[i] << endl;
+			cout << (i + 1) << ") " << setw(4) << arrVal[i] << " BAM, it is set to: TRUE. " << setw(18) << "Amount Left: " << coinAmnt[i] << endl;
 		}
 		else if (arrAllow[i] == false) {
-			cout << (i + 1) << ") " << arrVal[i] << " BAM, it is set to: FALSE.		Amount Left: " << coinAmnt[i] << endl;
+			cout << (i + 1) << ") " << setw(4) << arrVal[i] << " BAM, it is set to: FALSE. " << setw(17) << "Amount Left: " << coinAmnt[i] << endl;
 		}
 	}
 	cout << endl << endl << "Input 0 to Return." << endl << "~> ";
@@ -309,7 +296,7 @@ void settingModeMenu(const long double arrVal[], double cPrices[], string cTypes
 start:
 	cls();
 	cout << "Which menu would you like to access?" << endl;
-	cout << "OPTIONS:\n1) Stored coffee.\n2) Stored coins.\n3) Change prices.\n4) Change Allowed coins.\n5) Change coffee names.\n6) Stats.\n7) Return." << "\n~> ";
+	cout << "OPTIONS:\n1) Stored coffee.\n2) Stored coins.\n3) Change prices.\n4) Change Allowed coins.\n5) Change coffee names.\n6) Stats.\n0) Return." << "\n~> ";
 	cin >> choice;
 	beepBeep();
 
@@ -339,7 +326,7 @@ start:
 		stat(arrVal, cPrices, cTypes, coinAmnt, cAmnt, arrAllow);
 		break;
 
-	case 7:
+	case 0:
 		cls();
 		system("color f");
 		beepBeep();
