@@ -82,11 +82,22 @@ bool isDouble(double num) {
 	}
 }
 
-// Self explanitory...
+void hearts(short amnt) {
+	cout << "\n";
+	string heart = "\003";
+	for (short i = 0; i < amnt; i++) {
+		cout << heart[0];
+		sleep_for(milliseconds(1));
+	}
+	cout << "\n";
+}
+
+// Self explanitory...112
 void easterEgg() {
 	yello();
 	cls();
 	egg();
+	hearts(112);
 	// Sets the given text into a string var.
 	string Speech = "The coffee flowed from the machine in a smooth, steady stream, each droplet glistening in the light.\nIt was like a dance, a beautiful, mesmerizing performance that drew the eye and captured the imagination.\nAs it made its way into the cup, the coffee seemed to come alive, filling the air with its rich, aromatic scent.\nIt was a fragrance that spoke of comfort and warmth, of cozy nights by the fire and quiet moments of reflection.\n";
 	int x = 0;
@@ -96,8 +107,8 @@ void easterEgg() {
 		sleep_for(milliseconds(50));
 		x++;
 	}
-	pause();// This give the user enough time to read.
-	pause();
+	hearts(112);
+	system("pause");// This give the user enough time to read.
 	cls();
 	white();
 }
