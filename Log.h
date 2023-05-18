@@ -1,11 +1,11 @@
 #pragma once
 #pragma warning(disable : 4996) // To disable the deprecated error that show us when ctime function is used.
 
-#include<iostream>
-#include<fstream>
-#include<iostream>
-#include<fstream>
-#include<string>
+#include <iostream>
+#include <fstream>
+#include <iostream>
+#include <fstream>
+#include <string>
 #include <algorithm>
 #include <ctime>
 
